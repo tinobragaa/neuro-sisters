@@ -1,7 +1,4 @@
 .post_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 300px;
     background-color: #00B0E8;
 

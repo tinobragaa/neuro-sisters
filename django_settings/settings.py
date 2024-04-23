@@ -161,10 +161,12 @@ CKEDITOR_5_FILE_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStora
 
 CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'underline',
+                    'strikethrough', 'alignment',
                     'bulletedList', 'numberedList', 'blockQuote', 'code',
                     'link', 'highlight', 'fontColor', 'fontBackgroundColor',
-                     ],
+                    ],
+        'enterMode': 2,  # 1 for add p tags and 2 for add br tags
 
     },
     'extends': {
