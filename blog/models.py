@@ -59,6 +59,9 @@ class Friendship(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"{self.user} friend with {', '.join([str(friend) for friend in self.friend.all()])}"
+
 
 class Category(models.Model):
     """

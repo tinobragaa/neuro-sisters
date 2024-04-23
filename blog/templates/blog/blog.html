@@ -13,7 +13,7 @@
 {#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
         
     <div class="post_container">
-        <p>{{ post.content | safe }}</p>
+        <p>{{ post.content | safe | escape  }}</p>
 
     </div>
         
