@@ -26,13 +26,10 @@
     
     
     <div class="reactions_container">
-        Reactions: {{ reactions.get_reaction_count|default:"0" }}
-        {% for reaction in reactions %}
-            {% if reaction.post.id == post.id %}
-                {{ reaction }}
-            {% endif %} 
-        	
-        {% endfor %}
+        Reactions: {{ post.reactions_set.all.count }}       
+        Comments: {{ post.comment_set.all.count }}
+
+        
         
         
         

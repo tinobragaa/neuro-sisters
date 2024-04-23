@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from blog.forms import CommentForm
-from blog.models import Post, Category, Reactions
+from blog.models import Post, Category, Reactions, Comment
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -19,13 +19,13 @@ def blog_home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
     comment_form = CommentForm()
-    reactions = Reactions.objects.all()
+    # reactions = Reactions.objects.all()
+    # comments = Comment.objects.all()
 
     context = {
         'posts': posts,
         'categories': categories,
         'comment_form': comment_form,
-        'reactions': list(reactions),
     }
     return render(request, 'blog/blog.html', context)
 
