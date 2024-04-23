@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ("author", "content")
+        exclude = ("author", 'post')
         widgets = {
             "content": CKEditor5Widget(
                 attrs={"class": "django_ckeditor_5"},
