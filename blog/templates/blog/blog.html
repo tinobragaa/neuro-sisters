@@ -22,6 +22,14 @@
             {% if not forloop.last %}, {% endif %}
             {% endfor %}</p>
     </div>
+    
+{#TODO: Move form to post detail view, instead add comments counter under the post next to reactions#}
+{#form below need to migrate to the blog post detail view#}
+    <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
+    {% csrf_token %}
+        {{comment_form}}
+    <button type="submit">Submit</button>
+    </form>
 {% empty %}
     <p>No posts yet.</p>
 {% endfor %}
