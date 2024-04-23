@@ -182,4 +182,4 @@ class Reactions(models.Model):
         return Reactions.objects.filter(post=self.post).count()
 
     def __str__(self):
-        return self.post.title
+        return self.reaction
