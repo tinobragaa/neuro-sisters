@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/blog/blog.css' %}">
+</head>
+<body>
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>Author: {{ post.author.username }}</p>
+    <div>
+{#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
+        
+    <div class="post_container">
+        <p>{{ post.content | safe | escape  }}</p>
+
+    </div>
+        
+        <p>Categories: {% for cat in post.category.all %}
+            {{ cat.name }}
+            {% if not forloop.last %}
+                , 
+            {% endif %}
+            {% endfor %}</p>
+    
+    
+    <div class="reactions_container">
+        Reactions: {{ post.reactions_set.all.count }}       
+        Comments: {{ post.comment_set.all.count }}
+
+        
+        
+        
+        
+    </div>
+    </div>
+    
+{#TODO: Move form to post detail view, instead add comments counter under the post next to reactions#}
+{#form below need to migrate to the blog post detail view#}
+    <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
+    {% csrf_token %}
+        {{comment_form}}
+    <button type="submit">Submit</button>
+    </form>
+    
+    
+    
+    
+{% empty %}
+    <p>No posts yet.</p>
+{% endfor %}
+
+
+</body>
+</html>
