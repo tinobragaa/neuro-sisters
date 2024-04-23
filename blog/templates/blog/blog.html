@@ -1,16 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/blog/blog.css' %}">
 </head>
 <body>
 {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>Author: {{ post.author.username }}</p>
     <div>
-        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
-        <p>{{ post.content }}</p>
-        <p>Author: {{ post.author }}</p>
-        <p>Categories: {% for category in post.categories.all %}
-            {{ category.name }}
+{#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
+        
+    <div class="post_container">
+        <p>{{ post.content | safe }}</p>
+
+    </div>
+        
+        <p>Categories: {% for cat in post.category.all %}
+            {{ cat.name }}
             {% if not forloop.last %}, {% endif %}
             {% endfor %}</p>
     </div>

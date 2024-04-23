@@ -134,16 +134,21 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+STATICFILES_LOCATION = 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STORAGES = {
-
+    # "default": {
+    #     "BACKEND": "custom_storages.MediaStorage"
+    # },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        # "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
 #
 # If you want to apply compression but don’t want the caching behaviour then you can use the alternative backend:
 #

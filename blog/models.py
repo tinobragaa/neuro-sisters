@@ -96,9 +96,10 @@ class Post(models.Model):
             __str__(): Returns a string representation of the blog post.
 
     """
+    author = models.ForeignKey(User, on_delete=models.CASCADE,)
     title = models.CharField(max_length=100)
     content = CKEditor5Field('Text')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category, related_name='post_categories')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
