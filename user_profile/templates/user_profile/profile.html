@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>Hello {{ user_profile }}</h1>
+    
+    
+    <p>Yor friends are</p>
+    <ul>
+        {% for friend in friends.all %}
+        	<li>ID={{ friend.id }}, {{ friend }}</li>
+ 
+        {% endfor %}
+        
+        </ul>
+{% endblock %}

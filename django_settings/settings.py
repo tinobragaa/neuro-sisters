@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
-    'blog'
+    'blog',
+    'user_profile'
 ]
 
 MIDDLEWARE = [
