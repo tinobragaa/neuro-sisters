@@ -13,7 +13,6 @@ import environ
 import os
 from pathlib import Path
 
-
 env = environ.Env(
     DEBUG=(bool, False)
 )
@@ -36,7 +35,6 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
     'home',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_settings.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -91,9 +90,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -113,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -124,7 +119,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -144,7 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 STORAGES = {
 
     "staticfiles": {
@@ -155,3 +148,65 @@ STORAGES = {
 # If you want to apply compression but don’t want the caching behaviour then you can use the alternative backend:
 #
 # "whitenoise.storage.CompressedStaticFilesStorage"
+
+
+# CKEditor settings  https://pypi.org/project/django-ckeditor-5/
+
+CKEDITOR_5_FILE_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                    'bulletedList', 'numberedList', 'blockQuote', 'code',
+                    'link', 'highlight', 'fontColor', 'fontBackgroundColor',
+                     ],
+
+    },
+    'extends': {
+        'blockToolbar': [
+            'paragraph', 'heading1', 'heading2', 'heading3',
+            '|',
+            'bulletedList', 'numberedList',
+            '|',
+            'blockQuote',
+        ],
+        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic',
+                    'link', 'underline', 'strikethrough',
+                    'code', 'subscript', 'superscript', 'highlight', '|',
+                    'codeBlock', 'sourceEditing', 'bulletedList',
+                    'numberedList', 'todoList', '|', 'blockQuote', '|',
+                    'fontSize', 'fontFamily', 'fontColor',
+                    'fontBackgroundColor', 'removeFormat', 'insertTable', ],
+        'heading': {
+            'options': [
+                {'model': 'paragraph', 'title': 'Paragraph',
+                 'class': 'ck-heading_paragraph'},
+                {'model': 'heading1', 'view': 'h1', 'title': 'Heading 1',
+                 'class': 'ck-heading_heading1'},
+                {'model': 'heading2', 'view': 'h2', 'title': 'Heading 2',
+                 'class': 'ck-heading_heading2'},
+                {'model': 'heading3', 'view': 'h3', 'title': 'Heading 3',
+                 'class': 'ck-heading_heading3'}
+            ]
+        }
+    },
+    'list': {
+        'properties': {
+            'styles': 'true',
+            'startIndex': 'true',
+            'reversed': 'true',
+        }
+    }
+}
+
+# Email handling config (Not yet used)
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 465
+# EMAIL_HOST = 'mail.gradko.ru'
+# EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
+# DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")

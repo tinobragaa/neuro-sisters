@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+{% for post in posts %}
+    <div>
+        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+        <p>{{ post.content }}</p>
+        <p>Author: {{ post.author }}</p>
+        <p>Categories: {% for category in post.categories.all %}
+            {{ category.name }}
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}</p>
+    </div>
+{% empty %}
+    <p>No posts yet.</p>
+{% endfor %}
+</body>
+</html>
