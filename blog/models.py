@@ -23,7 +23,7 @@ class UserProfile(models.Model):
 
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = CKEditor5Field('Text')
+    bio = CKEditor5Field('Bio', blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -99,7 +99,7 @@ class Post(models.Model):
             __str__(): Returns a string representation of the blog post.
 
     """
-    author = models.ForeignKey(User, on_delete=models.CASCADE,)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, )
     title = models.CharField(max_length=100)
     content = CKEditor5Field('Text')
     category = models.ManyToManyField(Category, related_name='post_categories')

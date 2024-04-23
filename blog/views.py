@@ -51,6 +51,7 @@ def submit_comment(request, post_id):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.author = request.user
             comment.post = Post.objects.get(pk=post_id)
             comment.save()
             return HttpResponseRedirect(reverse('blog_home'))
