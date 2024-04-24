@@ -6,8 +6,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <meta name="description" 
+      content="Discover a supportive online platform for mothers of neurodivergent adults, offering ideas and strategies for maintaining their mental health while supporting their children. Join discussions, share insights, and access resources anonymously or with a user profile.">
+    <meta name="keywords" content="neurodivergent, mental health support, caregiving, parenting, forum">
+    <meta name="author" content="NeuroSisters">
+
     <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/x-icon">
+
+    <title>NeuroSisters {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
     <nav>
@@ -33,7 +42,7 @@
        </ul>
     </nav>
 
-<h1>It's alive!</h1>
+<h1 style="color: aquamarine;">It's alive!</h1>
 
 {% block body %}
 {% endblock %}
