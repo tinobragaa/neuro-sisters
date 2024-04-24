@@ -24,13 +24,14 @@ class Friendship(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name='user_friendship')
 
-    friend = models.ManyToManyField(User, related_name='friendship')
+    friend = models.ForeignKey(User, related_name='friendship',
+                               on_delete=models.CASCADE, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        # return f"{self.user} friend with {', '.join([str(friend) for friend in self.friend.all()])}"
-        return ', '.join([str(friend) for friend in self.friend.all()])
+        return f"{self.user} friend with {self.friend}"
+        # return ', '.join([str(friend) for friend in self.friend.all()])
 
 
 class Category(models.Model):

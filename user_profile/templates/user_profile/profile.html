@@ -8,7 +8,7 @@
     <p>Yor friends are</p>
     <ul>
         {% for friend in friends.all %}
-        	<li>ID={{ friend.id }}, {{ friend }}</li> 
+        	<li>ID={{ friend.id }}, {{ friend.friend }}</li> 
         {% endfor %}
         
         </ul>

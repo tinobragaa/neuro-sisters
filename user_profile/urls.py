@@ -1,8 +1,9 @@
 from django.urls import path
 
-from user_profile.views import display_user_profile
+from user_profile.views import display_user_profile, display_friend_profile
 
 urlpatterns = [
     path('', display_user_profile, name='profile'),
+    path('friend/<int:user_id>', display_friend_profile, name='friend_profile'),
 
 ]
