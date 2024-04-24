@@ -99,14 +99,6 @@ WSGI_APPLICATION = 'django_settings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises
     # ImproperlyConfigured exception if not found
@@ -163,23 +155,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_LOCATION = 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_SIGNUP_REDIRECT_URL = "profile"
+
 
 STORAGES = {
     # "default": {
-    #     "BACKEND": "custom_storages.MediaStorage"
+    #     "BACKEND": "custom_storages.MediaStorage"  #Activate this if S3 static storage required
     # },
     "staticfiles": {
-        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
-        # "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
 
-#
-# If you want to apply compression but don’t want the caching behaviour then you can use the alternative backend:
-#
-# "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 # CKEditor settings  https://pypi.org/project/django-ckeditor-5/
@@ -233,14 +222,4 @@ CKEDITOR_5_CONFIGS = {
     }
 }
 
-# Email handling config (Not yet used)
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 465
-# EMAIL_HOST = 'mail.gradko.ru'
-# EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
-# DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")

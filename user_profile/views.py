@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 from blog.models import Friendship, Post
 from user_profile.models import UserProfile
-
+from django.contrib import messages
 
 def get_user_profile(user_id):
     return UserProfile.objects.get(user__id=user_id)
@@ -54,10 +54,16 @@ def add_friend(request, user_id):
             user_id=user_one.id, friend_id=user_id)
         if created:
             context = {'message': 'Friend Added Successfully'}
+            messages.success(request, 'Friend Added Successfully')
+
         else:
             context = {'message': 'Already friends'}
+            messages.warning(request, 'Already friends')
+
     else:
         context = {'message': 'You cannot add yourself as a friend'}
+        messages.warning(request, 'You cannot add yourself as a friend')
+
         return render(request, 'user_profile/profile.html', context)
     return redirect('profile')
 
@@ -65,4 +71,6 @@ def add_friend(request, user_id):
 def remove_friend(request, friend_id):
     friendship = Friendship.objects.get(id=friend_id)
     friendship.delete()
+    messages.success(request, 'Friend Removed Successfully')
+
     return redirect('profile')
