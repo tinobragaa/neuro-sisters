@@ -102,3 +102,19 @@ def remove_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()
     return HttpResponseRedirect(reverse('profile'))
+
+@login_required
+@staff_member_required
+def edit_comment(request, comment_id):
+
+    comment = Comment.objects.get(pk=comment_id)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('post_detail', kwargs={'post_id': comment.post.id}))
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'blog/edit_comment.html', {'form': form})
