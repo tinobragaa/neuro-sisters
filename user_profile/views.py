@@ -23,7 +23,6 @@ def get_friends(user_id):
 def display_user_profile(request):
     user_id = request.user.id
     profile = get_user_profile(user_id)
-    # user = get_user(user_id)
     friends = get_friends(user_id)
     context = {'user_profile': profile,
                'friends': friends}
@@ -46,7 +45,6 @@ def display_friend_profile(request, user_id):
                   context)
 
 
-
 @login_required
 def add_friend(request, user_id):
     user_one = get_user(request.user.id)
@@ -62,7 +60,6 @@ def add_friend(request, user_id):
         context = {'message': 'You cannot add yourself as a friend'}
         return render(request, 'user_profile/profile.html', context)
     return redirect('profile')
-    # return render(request, 'user_profile/friends_profile.html', context)
 
 
 def remove_friend(request, friend_id):
