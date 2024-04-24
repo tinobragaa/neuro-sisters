@@ -44,3 +44,22 @@ def display_friend_profile(request, user_id):
 
     return render(request, 'user_profile/friends_profile.html',
                   context)
+
+
+
+@login_required
+def add_friend(request, user_id):
+    user_one = get_user(request.user.id)
+    user_two = get_user(user_id)
+    if user_one != user_two:
+        friendship, created = Friendship.objects.get_or_create(
+            user_id=user_one.id, friend_id=user_id)
+        if created:
+            context = {'message': 'Friend Added Successfully'}
+        else:
+            context = {'message': 'Already friends'}
+    else:
+        context = {'message': 'You cannot add yourself as a friend'}
+        return render(request, 'user_profile/profile.html', context)
+    return display_friend_profile(request, user_id=user_id)
+    # return render(request, 'user_profile/friends_profile.html', context)

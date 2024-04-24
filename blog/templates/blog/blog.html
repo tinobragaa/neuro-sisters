@@ -8,7 +8,9 @@
 <body>
 {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <p>Author: {{ post.author.username }}</p>
+    <p>Author: {{ post.author.username }} {% if not post.author.username == user.username %}
+    	<a href="{% url 'add_friend' post.author.id %}">Follow user</a>
+    {% endif %}  </p>
     <div>
 {#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
         
