@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from blog.forms import CommentForm
-from blog.models import Post, Category, Reactions, Comment
+from blog.models import Post, Category, Reactions, Comment, Friendship
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -22,11 +22,13 @@ def blog_home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
     comment_form = CommentForm()
+    friends_list = Friendship.objects.filter(user=request.user)
 
     context = {
         'posts': posts,
         'categories': categories,
         'comment_form': comment_form,
+        'friends_list': [friend.friend.id for friend in friends_list],
     }
     return render(request, 'blog/blog.html', context)
 

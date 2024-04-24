@@ -17,9 +17,12 @@
         {% for comment in comments %}
             <li>
                 Author: {{ comment.author }}, <br>
-                {{ comment.content | safe }} <br>
+                {{ comment.content | safe | escape }} <br>
                 Created on: {{ comment.created_at }}
-                <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                {% if comment.author == user or user.is_staff   %}
+                	<a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                {% endif %} 
+                
             </li>
         {% endfor %}
     </ul>
