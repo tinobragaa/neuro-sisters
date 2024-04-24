@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'user_profile'
+
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware"
+
 ]
 
 ROOT_URLCONF = 'django_settings.urls'

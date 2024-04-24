@@ -32,11 +32,11 @@ def display_user_profile(request):
 
 
 @login_required
-def display_friend_profile(request, user_id):
+def display_friend_profile(request, friend_id):
 
-    profile = get_user_profile(user_id)
+    profile = get_user_profile(friend_id)
     user = get_user(request.user.id)
-    posts = Post.objects.filter(author_id=user_id)
+    posts = Post.objects.filter(author_id=friend_id)
 
     context = {'user_profile': profile,
                'posts': posts}
