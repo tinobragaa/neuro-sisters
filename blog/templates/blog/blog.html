@@ -1,16 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Blog</title>
-    <link rel="stylesheet" href="{% static 'css/blog/blog.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block body %}
 {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <p>Author: {{ post.author.username }} {% if not post.author.username == user.username %}
-    	<a href="{% url 'add_friend' post.author.id %}">Follow user</a>
-    {% endif %}  </p>
+    <p>Author: {{ post.author.username }} {% if user.is_authenticated %}
+        {% if not post.author.username == user.username %}
+            <a href="{% url 'add_friend' post.author.id %}">Follow user</a>
+        {% endif %}  </p>
+    {% endif %}  
     <div>
 {#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
         
@@ -51,6 +48,4 @@
     <p>No posts yet.</p>
 {% endfor %}
 
-
-</body>
-</html>
+{% endblock %}

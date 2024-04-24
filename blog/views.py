@@ -58,3 +58,15 @@ def submit_comment(request, post_id):
     return render(request,
                   'blog/blog.html',
                   {'form': CommentForm()})
+
+
+def post_detail_view(request, post_id):
+
+    post = Post.objects.get(pk=post_id)
+    comments = post.comments.all()
+    context = {
+        'post': post,
+        'comments': comments,
+    }
+
+    return render(request, 'blog/post_detail.html', context)
