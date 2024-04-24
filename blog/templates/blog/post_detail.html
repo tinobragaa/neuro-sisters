@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    
+
     <p>post detail</p>
+    {{ post.content | safe | escape }}
+
+
+    <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
+    {% csrf_token %}        
+        {{comment_form}}
+    <button type="submit">Submit</button>
+    </form>
     
+    <p>comments</p>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                Author: {{ comment.author }}, <br>
+                {{ comment.content | safe | escape }} <br>
+                Created on: {{ comment.created_at }}
+                {% if comment.author == user or user.is_staff   %}
+                	<a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                {% endif %} 
+                
+            </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
