@@ -7,6 +7,8 @@ from blog.models import Post, Category, Reactions, Comment
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+from django.contrib.admin.views.decorators import staff_member_required
+
 
 def blog_home(request):
     """
@@ -64,7 +66,6 @@ def submit_comment(request, post_id):
 
 
 def post_detail_view(request, post_id):
-
     post = Post.objects.get(pk=post_id)
     comments = Comment.objects.filter(post_id=post.id)
     context = {
@@ -74,3 +75,28 @@ def post_detail_view(request, post_id):
     }
 
     return render(request, 'blog/post_detail.html', context)
+
+
+@login_required
+@staff_member_required
+def remove_comment(request, comment_id):
+    comment = Comment.objects.get(pk=comment_id)
+    comment.delete()
+    return HttpResponseRedirect(reverse('post_detail',
+                                        kwargs={'post_id': comment.post.id}))
+
+
+@login_required
+@staff_member_required
+def remove_category(request, category_id):
+    category = Category.objects.get(pk=category_id)
+    category.delete()
+    return HttpResponseRedirect(reverse('profile'))
+
+
+@login_required
+@staff_member_required
+def remove_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.delete()
+    return HttpResponseRedirect(reverse('profile'))

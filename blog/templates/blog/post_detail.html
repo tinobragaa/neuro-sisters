@@ -19,6 +19,7 @@
                 Author: {{ comment.author }}, <br>
                 {{ comment.content | safe }} <br>
                 Created on: {{ comment.created_at }}
+                <a href="{% url 'delete_comment' comment.id %}">Delete</a>
             </li>
         {% endfor %}
     </ul>
