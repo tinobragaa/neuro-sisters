@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from blog.forms import CommentForm
@@ -29,6 +30,7 @@ def blog_home(request):
 
 
 # submit comment
+@login_required
 def submit_comment(request, post_id):
     """
     :param request: The HTTP request object.
@@ -52,7 +54,8 @@ def submit_comment(request, post_id):
             comment.author = request.user
             comment.post = Post.objects.get(pk=post_id)
             comment.save()
-            return HttpResponseRedirect(reverse('blog_home'))
+            return HttpResponseRedirect(reverse('post_detail',
+                                                kwargs={'post_id': post_id}))
     # If not a POST, or the form isn't valid, render the form again with the
     # existing information
     return render(request,
@@ -67,6 +70,7 @@ def post_detail_view(request, post_id):
     context = {
         'post': post,
         'comments': comments,
+        'comment_form': CommentForm()
     }
 
     return render(request, 'blog/post_detail.html', context)
