@@ -46,3 +46,27 @@
 .dropdown-item:hover {
     background-color: #f0f0f0;
 }
+
+#intro {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    background-color: #faba9b;
+}
+
+#intro-image img {
+    width: 100%;
+}
+
+#book-club-image {
+    width: 60%;
+}
+
+#welcome {
+    width: 40%;
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 85%;
+}
