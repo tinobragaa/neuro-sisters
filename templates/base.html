@@ -13,7 +13,8 @@
     <meta name="author" content="NeuroSisters">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Truculenta:opsz,wght@12..72,100..900&family=Yatra+One&display=swap" rel="stylesheet">
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Truculenta:opsz,wght@12..72,100..900&family=Yatra+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <script src="https://kit.fontawesome.com/6131d31248.js" crossorigin="anonymous"></script>
@@ -37,7 +38,7 @@
 <body>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="/static/img/favicon/favicon.png" alt="Logo"></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/favicon/favicon.png' %}" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
