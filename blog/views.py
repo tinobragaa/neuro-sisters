@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from blog.forms import CommentForm
 from blog.models import Post, Category, Reactions, Comment, Friendship
@@ -102,6 +102,19 @@ def remove_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()
     return HttpResponseRedirect(reverse('profile'))
+
+
+@login_required
+@staff_member_required
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        post.content = request.POST.get('content', '')
+        post.save()
+        return HttpResponseRedirect(reverse('post_detail', kwargs={'post_id': post_id}))
+    else:
+        return render(request, 'blog/edit_post.html', {'post': post})
+
 
 @login_required
 @staff_member_required

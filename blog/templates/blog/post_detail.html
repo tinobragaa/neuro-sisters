@@ -4,7 +4,9 @@
 
     <p>post detail</p>
     {{ post.content | safe | escape }}
-
+    {% if post.author == user or user.is_staff %}
+        <a href="{% url 'edit_post' post.id %}">Edit Post</a>
+    {% endif %}
 
     <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
         {% csrf_token %}        

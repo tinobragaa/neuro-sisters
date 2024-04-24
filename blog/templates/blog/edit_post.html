@@ -1,0 +1,5 @@
+<form method="post">
+    {% csrf_token %}
+    <textarea name="content">{{ post.content }}</textarea>
+    <button type="submit">Update Post</button>
+</form>
