@@ -1,0 +1,48 @@
+
+/* Navbar */
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.custom-navbar {
+    width: 70%;
+    border-radius: 20px;
+    margin: 20px auto;
+    background-color: #eeeeee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
+ 
+.navbar-nav {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo-font {
+    font-family: "Belleza", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: xx-large;
+}
+
+/* Profile Dropdown Menu - Navbar */
+.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ccc; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    text-align: center;
+    color: #333; 
+    padding: 10px 20px; 
+    font-size: 14px; 
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
