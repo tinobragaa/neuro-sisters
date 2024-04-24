@@ -33,9 +33,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['neuro-sisters-37c8c20181fb.herokuapp.com']
+ALLOWED_HOSTS = ['neuro-sisters-37c8c20181fb.herokuapp.com',
+                 '127.0.0.1',
+                 '0.0.0.0', 'localhost', '*']
 
-CSRF_TRUSTED_ORIGINS=['https://neuro-sisters-37c8c20181fb.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/']
 
 # Application definition
 

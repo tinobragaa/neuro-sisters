@@ -4,12 +4,22 @@
 
     <h1>Hello {{ user_profile }}</h1>
     
-    
+    {% if friends %}
     <p>Yor friends are</p>
+    
+    	
+    
     <ul>
         {% for friend in friends.all %}
-        	<li>ID={{ friend.id }}, {{ friend }}</li> 
+        	<li>ID={{ friend.id }}, {{ friend.friend }}<a href="{% url 'remove_friend' friend.id %}">UNFOLLOW</a></li> 
         {% endfor %}
         
         </ul>
+    {% else %}    
+    <p>You are not following anyone yet.</p>
+    {% endif %}
+
+
+    <a href="{% url 'blog_home' %}">Blog</a>
+    
 {% endblock %}
