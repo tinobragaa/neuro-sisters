@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 
@@ -41,14 +42,6 @@ def submit_comment(request, post_id):
     :param post_id: The ID of the post the comment belongs to.
     :return: A HttpResponseRedirect object if the form is valid and the comment is submitted successfully, else a rendered HTML page with the comment form.
 
-    This method is responsible for submitting a comment on a blog post. It takes in the HTTP request object and the ID of the post the comment belongs to.
-
-    The method first checks if the request method is POST. If it is, the method creates a new instance of the CommentForm with the POST data. If the form is valid, the method saves the comment object without committing it to the database, sets the post attribute of the comment to the corresponding post using the post_id provided, and then saves the comment. Finally, the method returns a HttpResponseRedirect object, redirecting the user to the 'blog_home' URL.
-
-    If the request method is not POST or the form is not valid, the method renders the 'blog.html' template with an empty CommentForm and returns the rendered HTML page.
-
-    Example usage:
-        submit_comment(request, post_id)
     """
     # Only process form data on POST
     if request.method == 'POST':
@@ -84,6 +77,8 @@ def post_detail_view(request, post_id):
 def remove_comment(request, comment_id):
     comment = Comment.objects.get(pk=comment_id)
     comment.delete()
+    messages.success(request, 'Comment Removed Successfully')
+
     return HttpResponseRedirect(reverse('post_detail',
                                         kwargs={'post_id': comment.post.id}))
 
@@ -93,6 +88,8 @@ def remove_comment(request, comment_id):
 def remove_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     category.delete()
+    messages.success(request, 'Category Removed Successfully')
+
     return HttpResponseRedirect(reverse('profile'))
 
 
@@ -101,6 +98,8 @@ def remove_category(request, category_id):
 def remove_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()
+    messages.success(request, 'Post Removed Successfully')
+
     return HttpResponseRedirect(reverse('profile'))
 
 
@@ -126,8 +125,10 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('post_detail', kwargs={'post_id': comment.post.id}))
+            return HttpResponseRedirect(reverse('post_detail',
+                                                kwargs={'post_id': comment.post.id}))
     else:
         form = CommentForm(instance=comment)
 
-    return render(request, 'blog/edit_comment.html', {'form': form})
+    return render(request, 'blog/edit_comment.html',
+                  {'form': form})

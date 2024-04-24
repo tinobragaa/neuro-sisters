@@ -2,7 +2,7 @@ from django.urls import path
 
 from user_profile.views import (display_user_profile,
                                 display_friend_profile,
-                                add_friend,remove_friend)
+                                add_friend, remove_friend)
 
 urlpatterns = [
     path('', display_user_profile, name='profile'),
