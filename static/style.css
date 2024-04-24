@@ -8,7 +8,7 @@
     width: 70%;
     border-radius: 20px;
     margin: 20px auto;
-    background-color: #eeeeee;
+    background-color: #f8f9fa;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -26,6 +26,10 @@
     font-weight: 400;
     font-style: normal;
     font-size: xx-large;
+}
+
+.icon-size {
+    font-size: 25px;
 }
 
 /* Profile Dropdown Menu - Navbar */
@@ -46,6 +50,36 @@
 .dropdown-item:hover {
     background-color: #f0f0f0;
 }
+
+/* Footer */
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #ccc; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .footer .logo-font {
+    text-decoration: none; 
+    color: black; 
+  }
+
+/* Hero Image */
 
 #intro {
     width: 70%;
