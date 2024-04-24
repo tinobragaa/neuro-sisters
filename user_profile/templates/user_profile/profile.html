@@ -11,7 +11,7 @@
     
     <ul>
         {% for friend in friends.all %}
-        	<li>ID={{ friend.id }}, {{ friend.friend }}<a href="{% url 'remove_friend' friend.id %}">UNFOLLOW</a></li> 
+        	<li>ID={{ friend.friend.id }}, <a href="{% url 'friend_profile' friend.friend.id %}">{{ friend.friend }}</a><a href="{% url 'remove_friend' friend.id %}">UNFOLLOW</a></li> 
         {% endfor %}
         
         </ul>
