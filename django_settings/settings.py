@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['neuro-sisters-37c8c20181fb.herokuapp.com',
                  '127.0.0.1',
                  '0.0.0.0', 'localhost', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/', 'https://8000-tinobragaa-hackathontea-nw5xxu9paq6.ws-eu110.gitpod.io']
 
 # Application definition
 
@@ -163,6 +163,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_LOCATION = 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+LOGIN_REDIRECT_URL = 'home'
 
 STORAGES = {
     # "default": {
