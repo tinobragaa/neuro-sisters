@@ -9,7 +9,7 @@
         {% endif %}  </p>
     {% endif %}  
     <div>
-{#        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>#}
+        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
         
     <div class="post_container">
         <p>{{ post.content | safe | escape  }}</p>

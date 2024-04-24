@@ -63,7 +63,7 @@ def submit_comment(request, post_id):
 def post_detail_view(request, post_id):
 
     post = Post.objects.get(pk=post_id)
-    comments = post.comments.all()
+    comments = Comment.objects.filter(post_id=post.id)
     context = {
         'post': post,
         'comments': comments,

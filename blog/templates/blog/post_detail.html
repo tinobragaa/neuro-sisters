@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    
+
     <p>post detail</p>
-    
+    {{ post.content | safe | escape }}
+
+
+    <p>comments</p>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                Author: {{ comment.author }}, <br>
+                {{ comment.content | safe }} <br>
+                Created on: {{ comment.created_at }}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+
 {% endblock %}
