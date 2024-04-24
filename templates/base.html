@@ -54,13 +54,12 @@
                   <a class="nav-link" href="{% url 'read_more' %}">Read More</a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="{% url 'blog_home' %}">BLOG</a>
+                  <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>
                 </li>
                 <li class="nav-item list-inline-item dropdown">
                   <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
-                      <div><i class="far fa-user fa-lg"></i></div>
-                      <p class="my-0">Account</p>
+                      <div><i class="far fa-user icon-size"></i></div>
                     </div>
                   </a>
                   <div class="dropdown-menu border-0 base-text-font" aria-labelledby="user-options">
@@ -82,6 +81,17 @@
 
 {% block body %}
 {% endblock %}
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 d-flex align-items-center justify-content-center footer-logo">
+        <a class=" logo-font" href="{% url 'home' %}">NeuroSisters</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
 
 <script src="{% static 'js/script.js' %}"> </script>
