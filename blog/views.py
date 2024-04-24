@@ -19,8 +19,6 @@ def blog_home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
     comment_form = CommentForm()
-    # reactions = Reactions.objects.all()
-    # comments = Comment.objects.all()
 
     context = {
         'posts': posts,
@@ -55,6 +53,8 @@ def submit_comment(request, post_id):
             comment.post = Post.objects.get(pk=post_id)
             comment.save()
             return HttpResponseRedirect(reverse('blog_home'))
-
-    # If not a POST, or the form isn't valid, render the form again with the existing information
-    return render(request, 'blog/blog.html', {'form': CommentForm()})
+    # If not a POST, or the form isn't valid, render the form again with the
+    # existing information
+    return render(request,
+                  'blog/blog.html',
+                  {'form': CommentForm()})

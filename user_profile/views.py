@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from blog.models import Friendship, Post
 from user_profile.models import UserProfile
@@ -61,5 +61,11 @@ def add_friend(request, user_id):
     else:
         context = {'message': 'You cannot add yourself as a friend'}
         return render(request, 'user_profile/profile.html', context)
-    return display_friend_profile(request, user_id=user_id)
+    return redirect('profile')
     # return render(request, 'user_profile/friends_profile.html', context)
+
+
+def remove_friend(request, friend_id):
+    friendship = Friendship.objects.get(id=friend_id)
+    friendship.delete()
+    return redirect('profile')
