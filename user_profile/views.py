@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import request
 from django.shortcuts import render, redirect
+from .forms import EditProfileForm
 
 from blog.models import Friendship, Post
 from user_profile.models import UserProfile
@@ -74,3 +75,20 @@ def remove_friend(request, friend_id):
     messages.success(request, 'Friend Removed Successfully')
 
     return redirect('profile')
+
+
+@login_required
+def edit_profile(request):
+    user_profile = get_user_profile(request.user.id)
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST)
+        if form.is_valid():
+            bio = form.cleaned_data['bio']
+            user_profile.bio = bio
+            user_profile.save()
+            messages.success(request, 'Bio updated successfully')
+            return redirect('profile')
+    else:
+        form = EditProfileForm(initial={'bio': user_profile.bio})
+    
+    return render(request, 'user_profile/edit_profile.html', {'form': form})
