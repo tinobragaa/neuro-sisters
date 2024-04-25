@@ -112,24 +112,24 @@ main {
     display: flex;
     align-items: center;
 }
+
 #intro, h2 {
     font-size: 1.4rem;
-    line-height: 150%;
+    line-height: 160%;
 }
 
 #intro-message {
-    background-color: #ffffff;
-    padding: 20px;
+    background-color: #d2e7d6;
+    padding: 40px 20px;
     text-align: center;
-    line-height: 150%;
-    margin: 20px auto;
+    margin: 0 auto 40px;
 }
 #intro-message h2 {
     font-size: 1.6rem;
 }
 
 #intro-message p {
-    line-height: 150%;
+    line-height: 160%;
     font-size: 120%;
 }
 
