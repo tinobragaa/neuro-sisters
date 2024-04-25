@@ -41,7 +41,7 @@ def blog_home(request):
         'comment_form': comment_form,
         'friends_list': friends_list,
     }
-    messages.success(request, 'Your blog is now live!')
+
     return render(request, 'blog/blog.html', context)
 
 
