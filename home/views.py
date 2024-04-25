@@ -15,3 +15,8 @@ def read_more(request):
     context = {}
 
     return render(request, "home/read_more.html", context)
+
+
+def about(request):
+    context = {}
+    return render(request, "home/about.html", context)
