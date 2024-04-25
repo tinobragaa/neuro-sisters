@@ -12,6 +12,10 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 
 def get_post(post_id):
+    """
+    :param post_id: The ID of the post to retrieve.
+    :return: The post object with the specified ID.
+    """
     return get_object_or_404(Post, pk=post_id)
 
 
@@ -27,14 +31,17 @@ def blog_home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
     comment_form = CommentForm()
-    friends_list = Friendship.objects.filter(user=request.user)
+    friends_list = []
+    if request.user.is_authenticated:
+        friends_list = [friend.friend.id for friend in Friendship.objects.filter(user=request.user)]
 
     context = {
         'posts': posts,
         'categories': categories,
         'comment_form': comment_form,
-        'friends_list': [friend.friend.id for friend in friends_list],
+        'friends_list': friends_list,
     }
+    messages.success(request, 'Your blog is now live!')
     return render(request, 'blog/blog.html', context)
 
 
@@ -65,6 +72,13 @@ def submit_comment(request, post_id):
 
 
 def post_detail_view(request, post_id):
+    """
+    :param request: A HttpRequest object representing the request made by the client
+    :param post_id: An integer representing the ID of the post to be viewed
+    :return: A rendered HttpResponse object
+
+    This function takes in a request and a post_id and retrieves the post with the given ID using the `get_post` function. It also retrieves the comments for the post using the `Comment.objects.filter` method. The function then creates a context dictionary with the post, comments, and a CommentForm instance. Finally, it renders the 'blog/post_detail.html' template with the context and returns the rendered response.
+    """
     post = get_post(post_id)
     comments = Comment.objects.filter(post_id=post.id)
     context = {
@@ -79,6 +93,15 @@ def post_detail_view(request, post_id):
 @login_required
 @staff_member_required
 def remove_comment(request, comment_id):
+    """
+    Removes a comment.
+
+    :param request: the HTTP request object.
+    :type request: ~django.http.HttpRequest
+    :param comment_id: the ID of the comment to be removed.
+    :type comment_id: int
+    :return: an HTTP response redirecting to the post detail page.
+    """
     comment = Comment.objects.get(pk=comment_id)
     comment.delete()
     messages.success(request, 'Comment Removed Successfully')
@@ -90,6 +113,11 @@ def remove_comment(request, comment_id):
 @login_required
 @staff_member_required
 def remove_category(request, category_id):
+    """
+    :param request: The request object.
+    :param category_id: The ID of the category to be removed.
+    :return: The HTTP response redirecting to the 'profile' page.
+    """
     category = Category.objects.get(pk=category_id)
     category.delete()
     messages.success(request, 'Category Removed Successfully')
@@ -100,6 +128,11 @@ def remove_category(request, category_id):
 @login_required
 @staff_member_required
 def remove_post(request, post_id):
+    """
+    :param request: The HTTP request object.
+    :param post_id: The ID of the post to be removed.
+    :return: None
+      """
     post = get_post(post_id)
     post.delete()
     messages.success(request, 'Post Removed Successfully')
@@ -110,19 +143,38 @@ def remove_post(request, post_id):
 @login_required
 @staff_member_required
 def edit_post(request, post_id):
+    """
+    Edit a post.
+
+    :param request: The HTTP request object.
+    :param post_id: The ID of the post to be edited.
+    :return: If the request method is 'POST', the function updates the content of the post with the value of 'content' from the request's POST data, saves the post, and redirects to the post detail page. Otherwise, it renders the 'blog/edit_post.html' template with the 'post' context variable.
+
+    """
     post = get_post(post_id)
     if request.method == 'POST':
         post.content = request.POST.get('content', '')
         post.save()
-        return HttpResponseRedirect(reverse('post_detail', kwargs={'post_id': post_id}))
+        return HttpResponseRedirect(reverse('post_detail',
+                                            kwargs={'post_id': post_id}))
     else:
-        return render(request, 'blog/edit_post.html', {'post': post})
+        return render(request,
+                      'blog/edit_post.html',
+                      {'post': post})
 
 
 @login_required
 @staff_member_required
 def edit_comment(request, comment_id):
+    """
+    Edits a comment.
 
+    :param request: The HTTP request.
+    :type request: HttpRequest
+    :param comment_id: The ID of the comment to be edited.
+    :return: If the request method is POST and the form is valid, the user will be redirected to the 'post_detail' page of the comment's associated post. Otherwise, it will render the 'edit_comment.html' template with the comment form.
+
+    """
     comment = Comment.objects.get(pk=comment_id)
 
     if request.method == 'POST':
@@ -134,5 +186,6 @@ def edit_comment(request, comment_id):
     else:
         form = CommentForm(instance=comment)
 
-    return render(request, 'blog/edit_comment.html',
+    return render(request,
+                  'blog/edit_comment.html',
                   {'form': form})

@@ -7,24 +7,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="description" 
-      content="Discover a supportive online platform for mothers of neurodivergent adults, offering ideas and strategies for maintaining their mental health while supporting their children. Join discussions, share insights, and access resources anonymously or with a user profile.">
+    <meta name="description"
+          content="Discover a supportive online platform for mothers of neurodivergent adults, offering ideas and strategies for maintaining their mental health while supporting their children. Join discussions, share insights, and access resources anonymously or with a user profile.">
     <meta name="keywords" content="neurodivergent, mental health support, caregiving, parenting, forum">
     <meta name="author" content="NeuroSisters">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Truculenta:opsz,wght@12..72,100..900&family=Yatra+One&display=swap" rel="stylesheet">
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Truculenta:opsz,wght@12..72,100..900&family=Yatra+One&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <script src="https://kit.fontawesome.com/6131d31248.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,64 +37,73 @@
     <title>NeuroSisters {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/favicon/favicon.png' %}" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto align-items-center">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/favicon/favicon.png' %}"
+                                                             alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto align-items-center">
                 <li class="nav-item">
                     <a class="nav-link logo-font" href="{% url 'home' %}">NeuroSisters</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'read_more' %}">Read More</a>
+                    <a class="nav-link" href="#">About Us</a>
                 </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'read_more' %}">Read More</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>
                 </li>
                 <li class="nav-item list-inline-item dropdown">
-                  <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
-                      <div><i class="far fa-user icon-size"></i></div>
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="far fa-user icon-size"></i></div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0 base-text-font" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
                     </div>
-                  </a>
-                  <div class="dropdown-menu border-0 base-text-font" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                    {% endif %}
-                  </div>
                 </li>
-              </ul>
-            </div>
-          </nav>
-    </div>
+            </ul>
+        </div>
+    </nav>
+</div>
 
-<div class="messages-container">{% include "includes/messages-block.html" %}</div>
+{% include "includes/messages-block.html" %}
 
 {% block body %}
 {% endblock %}
 
+
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 d-flex align-items-center justify-content-center footer-logo">
-        <a class=" logo-font" href="{% url 'home' %}">NeuroSisters</a>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-center justify-content-center footer-logo">
+                <a class=" logo-font" href="{% url 'home' %}">NeuroSisters</a>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
 
 
+<script src="{% static 'js/script.js' %}"></script>
 
-<script src="{% static 'js/script.js' %}"> </script>
+
+<script>var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl, option)
+})</script>
 </body>
 </html>
