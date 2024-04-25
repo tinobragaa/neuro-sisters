@@ -27,9 +27,4 @@ urlpatterns = [
     path('profile/', include('user_profile.urls')),
 
     path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
