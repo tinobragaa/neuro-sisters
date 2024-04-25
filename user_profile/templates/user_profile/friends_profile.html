@@ -10,7 +10,9 @@
                      alt="Default profile image showing pencil sketch of a person"/>
 
                 <span class="profile-name mt-3">{{ user_profile | upper }}</span>
-
+                <div class=" px-2 rounded mt-4 date ">
+                    <span class="text-small">Bio:</span>
+                </div>
                 <div class="card profile-text mt-3"><span>{{ user_profile.bio | safe | escape }}</span>
                 </div>
 
@@ -18,20 +20,21 @@
                 </div>
 
                 <div class="d-flex flex-column justify-content-center align-items-center mt-3 mb-3 p-3">
-                    <span class="profile-name">{{ user_profile | upper }} Posts:</span>
+
+                    <span class="follow">{{ user_profile | upper }} Posts:</span>
                     <ul class="list-group list-group-flush">
                         {% for post in posts.all %}
                             <li class="list-group-item list-group-item-action tex-align-center d-flex justify-content-between align-items-center">
                                 <a class="list-group-item-action"
                                    href="{% url 'post_detail' post.id %}">{{ post.title | upper }}</a>
-                                
+
                             </li>
                         {% empty %}
                             <li class="list-group-item list-group-item-action tex-align-center d-flex justify-content-between align-items-center">
                                 <span class="list-group-item-action">
                                     {{ user_profile }} hasn't posted anything yet.
                                 </span>
-                                
+
                             </li>
                         {% endfor %}
 
@@ -43,6 +46,6 @@
             </div>
         </div>
     </div>
-    
+
 {% endblock %}
 
