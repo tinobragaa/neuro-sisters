@@ -54,12 +54,6 @@
 }
 
 
-/* Home page */
-main {
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 /* Footer */
 
 body {
@@ -88,10 +82,17 @@ body {
     color: black; 
   }
 
-/* Hero Image */
-
-#intro {
+/* Home page */
+main {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     width: 70%;
+    margin: 0 auto 70px;
+}
+
+/* Hero Image */
+#intro {
     margin: 0 auto;
     display: flex;
     background-color: #faba9b;
@@ -111,7 +112,6 @@ body {
     text-align: center;
     display: flex;
     align-items: center;
-    font-size: 85%;
 }
 
 #intro-message {
@@ -123,11 +123,72 @@ body {
     margin: 20px auto;
 }
 
-#intro-message p {
-    margin: 20px;
+/* Selfcare section */
+#selfcare {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
 }
 
+#focus-points h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
 
+#selfcare p {
+    padding: 0 20px;
+    font-size: 120%;
+}
+
+#selfcare h2 {
+    display: none;
+}
+
+/* Testimonials */
+#testimonials h2 {
+    display: none;
+}
+
+/* Use flexbox to makes this section responsive */
+.quotes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quotes>div {
+    color: #0d0c0c;
+    padding: 15px;
+    text-align: center;
+    flex-basis: auto;
+    flex-grow: 1;
+    margin: auto;
+    max-width: 300px;
+    font-size: 110%;
+}
+
+.quotes-images {
+    height: 90vw;
+    width: 90vw;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px auto;
+}
+
+#image-one {
+    background: url('../static/img/image-one.png') no-repeat center / cover;
+}
+
+#image-two {
+    background: url('../static/img/image-two.png') no-repeat center / cover;
+}
+
+#image-three {
+    background: url('../static/img/image-three.png') no-repeat center / cover;
+}
+
+#image-four {
+    background: url('../static/img/image-four.png') no-repeat center / cover;
+}
 
 /*Toasts*/
 
@@ -192,27 +253,6 @@ body {
 }
 
 /*toast end*/
-
-/* Selfcare section */
-#selfcare {
-    width: 90%;
-    margin: 20px auto;
-    text-align: center;
-}
-
-#focus-points h2 {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#selfcare p {
-    padding: 0 20px;
-    font-size: 120%;
-}
-
-#selfcare h2 {
-    display: none;
-}
 
 /* Small devices (Tablets and mobiles, 768px and down) */
 @media (max-width: 768px) {
