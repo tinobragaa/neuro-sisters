@@ -1,4 +1,8 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
+{#{% extends "account/base_entrance.html" %}#}
+
+{% block body %}
+
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
@@ -46,3 +50,5 @@
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
 {% endblock content %}
+
+{% endblock body %}
