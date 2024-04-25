@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['neuro-sisters-37c8c20181fb.herokuapp.com',
                  '127.0.0.1',
                  '0.0.0.0', 'localhost', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/', 'https://8000-tinobragaa-hackathontea-nw5xxu9paq6.ws-eu110.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/', 'https://8000-tinobragaa-hackathontea-nw5xxu9paq6.ws-eu110.gitpod.io', 'https://8088-tinobragaa-neurosisters-z9e0on7n2si.ws-eu110.gitpod.io']
 
 # Application definition
 
