@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
+{{ post.title }}
     <p>post detail</p>
     {{ post.content | safe | escape }}
     {% if post.author == user or user.is_staff %}

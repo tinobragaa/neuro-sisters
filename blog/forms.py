@@ -6,7 +6,7 @@ from .models import Comment, Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['category', 'content', ]
+        fields = ['category', 'title', 'content', ]
         widgets = {
             'content': CKEditor5Widget(attrs={"class": "django_ckeditor_5"},
                                        config_name="default")
