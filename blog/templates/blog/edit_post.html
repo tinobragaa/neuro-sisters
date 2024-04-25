@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<form method="post">
+    
+
+<form method="post" action="{% url 'edit_post' post.id %}">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Update Post</button>
