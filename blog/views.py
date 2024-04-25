@@ -11,6 +11,10 @@ from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
 
 
+def get_post(post_id):
+    return get_object_or_404(Post, pk=post_id)
+
+
 def blog_home(request):
     """
     Render the blog home page.
@@ -61,7 +65,7 @@ def submit_comment(request, post_id):
 
 
 def post_detail_view(request, post_id):
-    post = Post.objects.get(pk=post_id)
+    post = get_post(post_id)
     comments = Comment.objects.filter(post_id=post.id)
     context = {
         'post': post,
@@ -96,7 +100,7 @@ def remove_category(request, category_id):
 @login_required
 @staff_member_required
 def remove_post(request, post_id):
-    post = Post.objects.get(pk=post_id)
+    post = get_post(post_id)
     post.delete()
     messages.success(request, 'Post Removed Successfully')
 
@@ -106,7 +110,7 @@ def remove_post(request, post_id):
 @login_required
 @staff_member_required
 def edit_post(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
+    post = get_post(post_id)
     if request.method == 'POST':
         post.content = request.POST.get('content', '')
         post.save()
