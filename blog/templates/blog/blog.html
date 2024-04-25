@@ -13,7 +13,7 @@
     </div>
     
     
-    
+       <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
     
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
@@ -61,5 +61,6 @@
     {% empty %}
         <p>No posts yet.</p>
     {% endfor %}
-
+    
+ 
 {% endblock %}

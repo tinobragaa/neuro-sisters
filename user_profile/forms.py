@@ -1,4 +1,16 @@
-from django import forms
+from profile import Profile
 
-class EditProfileForm(forms.Form):
-    bio = forms.CharField(widget=forms.Textarea(attrs={'rows': 4}))
+from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
+
+from user_profile.models import UserProfile
+
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ["bio"]
+        widgets = {
+            "bio": CKEditor5Widget(attrs={"class": "django_ckeditor_5"},
+                                   config_name="default")
+        }
