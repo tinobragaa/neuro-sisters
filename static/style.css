@@ -274,6 +274,63 @@ main {
 
 /*toast end*/
 
+/*profile page*/
+.profile-text {
+    /*border: 1px solid black;*/
+    padding: 0 5px;
+    background-color: #fcf8f882
+}
+.profile-name {
+    font-size: 1.5rem;
+}
+.join {
+    font-size: 0.8rem;
+}
+
+.follow {
+    font-size: 1.5rem;
+}
+
+/*Profile page end*/
+
+/* Read more page */
+
+#learn-more h2 {
+    text-align: center;
+}
+
+#practical-info {
+    display: flex;
+    padding: 15px;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 110%;
+    border: 2px solid #536d7a;
+    border-radius: 10px;
+    background-color: #cdd8e6;
+}
+
+#practical-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 20px;
+}
+
+#practical-info p {
+    font-size: 1.1em;
+}
+
+#info-image {
+    width: 40%;
+}
+
+#info-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
 /* Small devices (Tablets and mobiles, 768px and down) */
 @media (max-width: 768px) {
 
@@ -293,24 +350,14 @@ main {
     #welcome {
         width: initial;
     }
-}
 
+    /* Read more page */
+    #practical-info {
+        display: flex;
+        flex-direction: column;
+    }
 
-/*profile page*/
-.profile-text {
-    /*border: 1px solid black;*/
-    padding: 0 5px;
-    background-color: #fcf8f882
+    #info-image {
+        width: 100%;
+    }
 }
-.profile-name {
-    font-size: 1.5rem;
-}
-.join {
-    font-size: 0.8rem;
-}
-
-.follow {
-    font-size: 1.5rem;
-}
-
-/*Profile page end*/
