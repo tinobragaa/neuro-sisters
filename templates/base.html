@@ -18,15 +18,8 @@
           rel="stylesheet">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
-    <script src="https://kit.fontawesome.com/6131d31248.js" crossorigin="anonymous"></script>
-    {#    <script src="https://code.jquery.com/jquery-3.4.1.min.js"#}
-    {#            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>#}
-    {#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
-    {#            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">#}
-    {#    </script>#}
-    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
-    {#            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">#}
-    {#    </script>#}
+    
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -40,6 +33,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
     <title>NeuroSisters {% block extra_title %}{% endblock %}</title>
 </head>
@@ -67,10 +63,10 @@
                     <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>
                 </li>
                 <li class="nav-item list-inline-item dropdown">
-                    <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
+                    <a class="text-black nav-link " href="#" id="user-options" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
-                            <div><i class="far fa-user icon-size"></i></div>
+                            <span><i class="fa-solid fa-user icon-size"></i></span>
                         </div>
                     </a>
                     <div class="dropdown-menu border-0 base-text-font" aria-labelledby="user-options">
@@ -93,8 +89,8 @@
 {% block body %}
 {% endblock %}
 <!-- font awsome kit -->
-<script
-  src="https://kit.fontawesome.com/e6ed4f3b44.js" crossorigin="anonymous"></script>
+{#<script#}
+{#  src="https://kit.fontawesome.com/e6ed4f3b44.js" crossorigin="anonymous"></script>#}
 
 <footer class="footer">
     <div class="container">
