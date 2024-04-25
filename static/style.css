@@ -88,12 +88,11 @@ main {
     font-weight: 400;
     font-style: normal;
     width: 70%;
-    margin: 0 auto 70px;
+    margin: 0 auto 90px;
 }
 
 /* Hero Image */
 #intro {
-    margin: 0 auto;
     display: flex;
     background-color: #faba9b;
 }
@@ -108,19 +107,30 @@ main {
 
 #welcome {
     width: 40%;
-    margin: 2rem;
+    margin: 2em;
     text-align: center;
     display: flex;
     align-items: center;
 }
 
+#intro, h2 {
+    font-size: 1.4rem;
+    line-height: 160%;
+}
+
 #intro-message {
-    background-color: #ffffff;
-    padding: 20px;
+    background-color: #d2e7d6;
+    padding: 40px 20px;
     text-align: center;
-    line-height: 150%;
-    font-size: 130%;
-    margin: 20px auto;
+    margin: 0 auto 40px;
+}
+#intro-message h2 {
+    font-size: 1.6rem;
+}
+
+#intro-message p {
+    line-height: 160%;
+    font-size: 120%;
 }
 
 /* Selfcare section */
@@ -130,9 +140,14 @@ main {
     text-align: center;
 }
 
-#focus-points h2 {
+#focus-points h3 {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 1.4rem;
+}
+
+#focus-points div {
+    margin-bottom: 60px;
 }
 
 #selfcare p {
@@ -161,14 +176,19 @@ main {
     text-align: center;
     flex-basis: auto;
     flex-grow: 1;
-    margin: auto;
+    margin: 20px auto;
     max-width: 300px;
+    max-height: 500px;
     font-size: 110%;
+    border: 2px solid #536d7a;
+    border-radius: 10px;
+    background-color: #cdd8e6;
 }
 
 .quotes-images {
     height: 90vw;
     width: 90vw;
+    border-radius: 50%;
     max-width: 100px;
     max-height: 100px;
     margin: 10px auto;
@@ -271,7 +291,7 @@ main {
     }
 
     #welcome {
-        width: 100%;
+        width: initial;
     }
 }
 
