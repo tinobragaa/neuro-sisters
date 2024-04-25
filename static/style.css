@@ -104,3 +104,16 @@ body {
     align-items: center;
     font-size: 85%;
 }
+
+#introduction {
+    width: 70%;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-size: 80%;
+    margin: 0 auto;
+}
+
+#introduction h3 {
+    margin: 20px;
+}
