@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %}
+
+    <div class="row">
+    {% for category in categories %}
+    	<div class="col">
+            {{ category }}
+        </div>
+    {% endfor %}
+    
+        
+    </div>
+    
+    
+    
+    
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
         <p>Author: {{ post.author.username }}

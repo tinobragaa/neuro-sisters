@@ -2,7 +2,9 @@
 
 {% block body %}
 
-    <h1>You are viewing {{ user_profile }} profile <a href="{% url 'remove_friend' user_profile.id %}">UNFOLLOW</a></h1>
+    <h1>You are viewing {{ user_profile }} profile 
+        <a href="{% url 'remove_friend' user_profile.id %}">UNFOLLOW</a>
+    </h1>
     
     
     <p>{{ user_profile | capfirst }} articles: </p>
