@@ -1,18 +1,48 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
 
-    <h1>You are viewing {{ user_profile }} profile 
-        <a href="{% url 'remove_friend' user_profile.id %}">UNFOLLOW</a>
-    </h1>
+    <div class="container mt-4 mb-5 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class=" image d-flex flex-column justify-content-center align-items-center">
+
+                <img src="{% static 'img/profile_image.png' %}" height="100" width="100"
+                     alt="Default profile image showing pencil sketch of a person"/>
+
+                <span class="profile-name mt-3">{{ user_profile | upper }}</span>
+
+                <div class="card profile-text mt-3"><span>{{ user_profile.bio | safe | escape }}</span>
+                </div>
+
+                <div class=" px-2 rounded mt-4 date "><span class="join">Joined {{ user_profile.date_created }}</span>
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-items-center mt-3 mb-3 p-3">
+                    <span class="profile-name">{{ user_profile | upper }} Posts:</span>
+                    <ul class="list-group list-group-flush">
+                        {% for post in posts.all %}
+                            <li class="list-group-item list-group-item-action tex-align-center d-flex justify-content-between align-items-center">
+                                <a class="list-group-item-action"
+                                   href="{% url 'post_detail' post.id %}">{{ post.title | upper }}</a>
+                                
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item list-group-item-action tex-align-center d-flex justify-content-between align-items-center">
+                                <span class="list-group-item-action">
+                                    {{ user_profile }} hasn't posted anything yet.
+                                </span>
+                                
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     
-    
-    <p>{{ user_profile | capfirst }} articles: </p>
-    <ul>
-        {% for post in posts.all %}
-        	<li>ID={{ post.id }}, {{ post }}</li> 
-        {% endfor %}
-        
-        </ul>
 {% endblock %}
 
