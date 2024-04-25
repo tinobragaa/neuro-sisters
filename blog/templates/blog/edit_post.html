@@ -1,5 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
 <form method="post">
     {% csrf_token %}
-    <textarea name="content">{{ post.content }}</textarea>
+    {{ form }}
     <button type="submit">Update Post</button>
 </form>
+
+{% endblock %}

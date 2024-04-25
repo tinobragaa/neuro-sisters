@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 
-from blog.forms import CommentForm
+from blog.forms import CommentForm, PostForm
 from blog.models import Post, Category, Reactions, Comment, Friendship
 
 from django.http import HttpResponseRedirect
@@ -142,6 +142,35 @@ def remove_post(request, post_id):
 
 @login_required
 @staff_member_required
+def add_post(request):
+    """
+    Edit a post.
+
+    :param request: The HTTP request object.
+    :param post_id: The ID of the post to be edited.
+    :return: If the request method is 'POST', the function updates the content of the post with the value of 'content' from the request's POST data, saves the post, and redirects to the post detail page. Otherwise, it renders the 'blog/edit_post.html' template with the 'post' context variable.
+
+    """
+
+    if request.method == 'POST':
+
+        form = PostForm(request.POST)
+        post = form.save(commit=False)
+        post.author = request.user
+        post.content = request.POST.get('content', '')
+        post.save()
+        return HttpResponseRedirect(reverse('post_detail',
+                                            kwargs={'post_id': post.id}))
+    else:
+        form = PostForm()
+        return render(request,
+                      'blog/add_post.html',
+                      {'form': form})
+
+
+
+@login_required
+@staff_member_required
 def edit_post(request, post_id):
     """
     Edit a post.
@@ -152,7 +181,9 @@ def edit_post(request, post_id):
 
     """
     post = get_post(post_id)
+    form = PostForm(instance=post)
     if request.method == 'POST':
+
         post.content = request.POST.get('content', '')
         post.save()
         return HttpResponseRedirect(reverse('post_detail',
@@ -160,7 +191,7 @@ def edit_post(request, post_id):
     else:
         return render(request,
                       'blog/edit_post.html',
-                      {'post': post})
+                      {'post': post, 'form': form})
 
 
 @login_required
