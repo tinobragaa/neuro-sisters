@@ -274,3 +274,23 @@ main {
         width: 100%;
     }
 }
+
+
+/*profile page*/
+.profile-text {
+    /*border: 1px solid black;*/
+    padding: 0 5px;
+    background-color: #fcf8f882
+}
+.profile-name {
+    font-size: 1.5rem;
+}
+.join {
+    font-size: 0.8rem;
+}
+
+.follow {
+    font-size: 1.5rem;
+}
+
+/*Profile page end*/

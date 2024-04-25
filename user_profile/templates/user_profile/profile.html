@@ -1,25 +1,61 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
 
-    <h1>Hello {{ user_profile }}</h1>
-    
-    {% if friends %}
-    <p>Yor friends are</p>
-    
-    	
-    
-    <ul>
-        {% for friend in friends.all %}
-        	<li>ID={{ friend.friend.id }}, <a href="{% url 'friend_profile' friend.friend.id %}">{{ friend.friend }}</a><a href="{% url 'remove_friend' friend.id %}">UNFOLLOW</a></li> 
-        {% endfor %}
-        
-        </ul>
-    {% else %}    
-    <p>You are not following anyone yet.</p>
-    {% endif %}
+    <div class="container mt-4 mb-5 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class=" image d-flex flex-column justify-content-center align-items-center">
+
+                <img src="{% static 'img/profile_image.png' %}" height="100" width="100"
+                     alt="Default profile image showing pencil sketch of a person"/>
+
+                <span class="profile-name mt-3">{{ user_profile | upper }}</span>
+
+{#                <div class="d-flex flex-row justify-content-center align-items-center mt-3">#}
+{#                    <span class="number">1069 <span class="">Followers</span></span></div>#}
+                <div class=" d-flex mt-3">
+                    <button class="btn1 btn-dark">Edit Profile</button>
+                </div>
+                <div class="card profile-text mt-3"><span>{{ user_profile.bio | safe | escape }}</span>
+                </div>
+
+                <div class="px-2 rounded mt-4 date "><span class="join">Joined {{ user_profile.date_created }}</span>
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-items-center mt-3 mb-3 p-3">
+                    <span class="follow">People you follow</span>
+
+                    {% if friends %}
+                        <div class="row mt-3">
+                        <div class="col">
+                            <ul class="list-group list-group-flush">
+                                {% for friend in friends.all %}
+                                    <li class="list-group-item list-group-item-action tex-align-center d-flex justify-content-between align-items-center">
+                                        <a class="list-group-item-action"
+                                           href="{% url 'friend_profile' friend.friend.id %}">{{ friend.friend | upper }}</a>
+                                        <a class="p-2 ml-2 mr-2 badge badge-primary badge-pill"
+                                           href="{% url 'remove_friend' friend.id %}">UNFOLLOW</a>
+                                    </li>
+
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+
+                    {% else %}
+                        <div class="row">
+                            <div class="col">
+                                <p>You are not following anyone yet.</p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
-    <a href="{% url 'blog_home' %}">Blog</a>
-    
 {% endblock %}
