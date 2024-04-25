@@ -1,11 +1,16 @@
 from django.urls import path
+from django.conf.urls import handler404, handler500, handler403
+
 
 from blog.views import (blog_home,
                         submit_comment,
                         post_detail_view,
                         remove_comment,
                         edit_comment,
-                        edit_post)
+                        edit_post,
+                        custom_404,
+                        custom_500,
+                        custom_403)
 
 urlpatterns = [
     path('', blog_home, name='blog_home'),
@@ -15,3 +20,7 @@ urlpatterns = [
     path('comments/delete/<int:comment_id>', remove_comment, name='delete_comment'),
     path('edit_comment/<int:comment_id>/', edit_comment, name='edit_comment'),
 ]
+
+handler404 = custom_404
+handler500 = custom_500
+handler403 = custom_403

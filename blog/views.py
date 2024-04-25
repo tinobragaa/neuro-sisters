@@ -189,3 +189,16 @@ def edit_comment(request, comment_id):
     return render(request,
                   'blog/edit_comment.html',
                   {'form': form})
+
+
+
+def custom_404(request, exception):
+    return render(request, 'errors/404.html', status=404)
+
+
+def custom_500(request):
+    return render(request, 'errors/500.html', status=500)
+
+
+def custom_403(request, exception):
+    return render(request, 'errors/403.html', status=403)
