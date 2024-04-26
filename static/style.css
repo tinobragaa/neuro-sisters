@@ -534,12 +534,12 @@ main {
 
 .reactions, .comments {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .reactions p, .comments p {
     padding: 5px;
-    margin-left: 5px; 
+    margin-left: 5px;
 }
 
 .small-number {
@@ -548,4 +548,25 @@ main {
     text-align: center;
     background-color: #ffffff;
 }
- 
+
+
+.reactions-container {
+    position: relative;
+}
+
+.reactions-choices {
+    position: absolute;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    gap: 5px;
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 25%;
+}
+
+.hidden {
+     visibility: hidden;
+}
