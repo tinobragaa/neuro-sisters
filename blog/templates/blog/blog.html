@@ -87,12 +87,13 @@
                 $(this).find('.reactions-choices').addClass('hidden');
             }
 
-            $('.reactions-container').on('click', showReactionChoices);
-            $('.reactions-choices').on('click', hideReactionChoices);
+            $('.reactions-container').on('mouseover', showReactionChoices);
 
 
+             $('*').click(function() {
+                    $('.reactions-choices').addClass('hidden');
+              });
         })
-
 
     </script>
 {% endblock %}
