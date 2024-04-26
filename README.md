@@ -19,16 +19,13 @@
 - [User Experience](#user-experience)
   - [User Stories](#user-stories)
   - [UXD User Experience Design](#uxd-user-experience-design)
-  - [Wireframes](#wireframes)
-- [Features](#features)
-  - [Current Features](#current-features)
-  - [Features Left to Implement](#features-left-to-implement)
-- [Technologies Used](#technologies-used)
+  - [Technologies Used](#technologies-used)
   - [Languages](#languages)
 - [Testing](#testing)
   - [Code Validation](#code-validation)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
+  - [Features Left to Implement](#features-left-to-implement)
 - [Credits](#credits)
   - [Code](#code)
   - [Acknowledgements](#acknowledgements)
@@ -55,24 +52,10 @@ A website where women who are mothers or female carers of  neuro divergent adult
 
 #### Colour Scheme
 
-Colour scheme used was based on these templates
-[colour scheme templates](
+Colour scheme used was based on these templates and were designed to be calm and restorative.
+[colour scheme templates](https://colorhunt.co/)
 
-
-### Wireframes
-
-## Features
-
-### Current Features
-
-- [Features - Seperate Document](healthyplanet/static/readme-content/features.md)
-
-### Features Left to Implement
-
-We thought about how to improve the app. Some ideas were:
-1. To add search functionality.
-2. 
-   
+ 
 
 ## Technologies Used
 
@@ -90,6 +73,13 @@ We thought about how to improve the app. Some ideas were:
 
 * [Javascript](https://www.w3schools.com/js/DEFAULT.asp) is used to implement interactivity on the site.
 
+### Database schema
+
+The database for the blogs was created in [Oracle](https://www.pro-dba.com/oracle-services/oracle-support/)
+
+The database schema is below.
+
+![image](https://github.com/tinobragaa/neuro-sisters/assets/20447596/78bbd248-06f5-4d12-b122-955e19cfbe1f)
 
 ## Testing
 
@@ -117,19 +107,33 @@ Deployment was done successfully using heroku. The deployment process is outline
 - To deploy the site, run the command ```git push heroku main```
   - If this fails, you can check whether the Heroku remote is connected by running ```git remote -v``` and it should appear on the list
  - Click `View` on the deployment page of Heroku to view the deployed site.
-
-
 The site is now live and operational
 
----
+## Features Left to Implement
+
+We thought about how to improve the app. Some ideas were:
+1. To add search functionality for the blog posts.
+2. To allow users to add pictures on the site of resources they found useful.
+3. To allow users to view the posts they have created in their profiles and to edit these there.
 
 ## Credits
 
-
+1. Picture on home page was created using DALL-E-3.
+2. Images on the site came from [unsplash](https://unsplash.com/)
+   
 
 ### Code
 
 Code was written by different team members and different aspects as shown.
 1. Tino got the repo up and deployed the site to heroku. 
-2.Collaborators then cloned the repo and set it as remote. Collaborators could then work on their code and issue pull requests when each feature was ready to be merged into the main branch.
+2. Collaborators then cloned the repo and set it as remote. Collaborators could then work on their code and issue pull requests when each feature was ready to be merged into the main branch.
+3. Collaborators were:
+  - [Alex](https://github.com/alexandergrib)
+  - [Allina](https://github.com/TeodoraAlina)
+  - [Tino](https://github.com/tinobragaa)
+  - [Justyna](https://github.com/justynath)
+  - [Lauren](https://github.com/Lauren21717)
+  - [Debbie](https://github.com/debbiect246)
+  - [Amir](https://github.com/AmirAkmed)
+
 
