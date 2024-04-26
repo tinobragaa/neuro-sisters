@@ -228,3 +228,5 @@ CKEDITOR_5_CONFIGS = {
 }
 
 
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

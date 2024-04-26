@@ -217,6 +217,17 @@ def edit_comment(request, comment_id):
                   {'form': form})
 
 
+def reaction_add(request, post_id):
+    reaction_type = request.POST.get('reaction_type')
+    # post_id = request.POST.get('post_id')
+    post = get_post(post_id)
+    reaction = Reactions.objects.create(post=post, user=request.user,
+                                        reaction_type=reaction_type)
+    reaction.save()
+    return HttpResponseRedirect(
+        reverse('post_detail', kwargs={'post_id': post_id}))
+
+
 
 def custom_404(request, exception):
     return render(request, 'errors/404.html', status=404)
