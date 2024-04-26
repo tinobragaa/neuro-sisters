@@ -595,3 +595,16 @@ main {
     font-size: 2rem;
     margin-top: 40px;
 }
+
+/* About */
+.about-info {
+    padding: 25px;
+    margin: 30px auto;
+    border: 2px solid #536d7a;
+    border-radius: 10px;
+    background-color: #cdd8e6;
+}
+
+#about-green {
+    background-color: #d2e7d6;
+}
