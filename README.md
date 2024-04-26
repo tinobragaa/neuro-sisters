@@ -1,7 +1,7 @@
 # hackathon-team1-april
 
-
 ## Code Institute April 2024 Hackathon
+![readme_image](https://github.com/tinobragaa/neuro-sisters/assets/20447596/aebadcd4-14da-4fcb-96c8-2c7f6c339306)
 
 
 ## Live Site
