@@ -588,6 +588,8 @@ ul {
     height: 400px;
     border-radius: 10px;
     padding: 10px;
+    font-family: 'Belleza', sans-serif;
+    font-size: 1rem;
 }
 
 .reactions {
