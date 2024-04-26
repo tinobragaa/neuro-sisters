@@ -98,6 +98,11 @@ body {
     color: black;
 }
 
+.footer-icons a i {
+    color: black;
+    font-size: 20px;
+}
+
 /* Home page */
 main {
     font-family: "Alegreya Sans", sans-serif;
