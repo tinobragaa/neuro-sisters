@@ -13,7 +13,7 @@
                 <div class=" px-2 rounded mt-4 date ">
                     <span class="text-small">Bio:</span>
                 </div>
-                <div class="card profile-text mt-3"><span>{{ user_profile.bio | safe | escape }}</span>
+                <div class="card profile-text mt-3"><span>{{ user_profile.bio | safe }}</span>
                 </div>
 
                 <div class=" px-2 rounded mt-4 date "><span class="join">Joined {{ user_profile.date_created }}</span>

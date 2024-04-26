@@ -4,7 +4,7 @@
 {% block body %}
 {{ post.title }}
     <p>post detail</p>
-    {{ post.content | safe | escape }}
+    {{ post.content | safe }}
     {% if post.author == user or user.is_staff %}
         <a href="{% url 'edit_post' post.id %}">Edit Post</a>
     {% endif %}
@@ -20,7 +20,7 @@
         {% for comment in comments %}
             <li>
                 Author: {{ comment.author }}, <br>
-                {{ comment.content | safe | escape }} <br>
+                {{ comment.content | safe }} <br>
                 Created on: {{ comment.created_at }}
                 {% if comment.author == user or user.is_staff %}
                     <a href="{% url 'edit_comment' comment.id %}">Edit</a> |
