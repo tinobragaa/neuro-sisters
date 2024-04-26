@@ -14,12 +14,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Truculenta:opsz,wght@12..72,100..900&family=Yatra+One&display=swap"
-          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-
-    
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -27,15 +22,12 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
-
+    
     <link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 
     <title>NeuroSisters {% block extra_title %}{% endblock %}</title>
 </head>
@@ -54,13 +46,13 @@
                     <a class="nav-link logo-font" href="{% url 'home' %}">NeuroSisters</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    <a class="nav-link" href="{% url 'about' %}"><strong>About Us</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'read_more' %}">Read More</a>
+                    <a class="nav-link" href="{% url 'read_more' %}"><strong>Read More</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>
+                    <a class="nav-link" href="{% url 'blog_home' %}"><strong>Blog</strong></a>
                 </li>
                 <li class="nav-item list-inline-item dropdown">
                     <a class="text-black nav-link " href="#" id="user-options" data-bs-toggle="dropdown"
@@ -83,6 +75,7 @@
         </div>
     </nav>
 </div>
+<div class="nav-placeholder"></div>
 
 {% include "includes/messages-block.html" %}
 
@@ -96,11 +89,26 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 d-flex align-items-center justify-content-center footer-logo">
-                <a class=" logo-font" href="{% url 'home' %}">NeuroSisters</a>
+                <a class="logo-font" href="{% url 'home' %}">NeuroSisters</a>
             </div>
+        </div>
+        <hr>
+        <div class="center">
+            <ul class="d-flex justify-content-center list-unstyled ">
+                <li class="mx-3 footer-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li class="mx-3 footer-icons">
+                    <a href="https://spotify.com" target="_blank" rel="noopener" aria-label="Listen to our Spotify Playlists (opens in a new tab)"><i class="fa-brands fa-spotify"></i></a>
+                </li>
+                <li class="mx-3 footer-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </footer>
+
 
 
 <script src="{% static 'js/script.js' %}"></script>
@@ -112,7 +120,6 @@
         return new bootstrap.Toast(toastEl)
     })
     toastList.forEach(toast => toast.show())
-
 </script>
 </body>
 </html>
