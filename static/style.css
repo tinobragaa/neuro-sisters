@@ -381,3 +381,25 @@ main {
         width: 100%;
     }
 }
+
+/* ------------- about page -------------------*/
+.about-container {
+    width: 80%;
+    margin: auto;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  .about h1 {
+    font-weight: bold;
+  }
+  
+  
+  .about p {
+    padding: 2rem 0 0;
+  }
+  
+  .about img {
+    width: 100%;
+    border-radius: 1rem;
+  }
