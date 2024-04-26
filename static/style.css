@@ -483,7 +483,7 @@ main {
 }
 
 .category {
-    border: 1px solid #536d7a;
+    border: 2px solid #536d7a;
     height: 80px;
     width: 200px;
     margin: 5px 20px;
@@ -495,6 +495,11 @@ main {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.category:hover {
+    background-color: #76757b;
+    color: #fefefe;
 }
 
 .post {
