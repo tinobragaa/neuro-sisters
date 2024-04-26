@@ -548,23 +548,18 @@ main {
     padding: 10px;
 }
 
-.reactions p {
-    padding: 5px
-}
-
-.reactions-comments {
+.reactions {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-end;
 }
 
-.reactions, .comments {
-    display: flex;
-    align-items: center;
-}
-
-.reactions p, .comments p {
+.reactions i {
     padding: 5px;
-    margin-left: 5px;
+    font-size: 1.8em;
+}
+
+.reactions-container {
+    margin: 0 30px;
 }
 
 .small-number {
