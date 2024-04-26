@@ -36,12 +36,13 @@ def blog_home(request):
     friends_list = []
     if request.user.is_authenticated:
         friends_list = [friend.friend.id for friend in Friendship.objects.filter(user=request.user)]
-
+    reactions_list = Reactions.objects.all()
     context = {
         'posts': posts,
         'categories': categories,
         'comment_form': comment_form,
         'friends_list': friends_list,
+        'reactions_list': reactions_list,
     }
 
     return render(request, 'blog/blog.html', context)
@@ -217,13 +218,17 @@ def edit_comment(request, comment_id):
                   {'form': form})
 
 
-def reaction_add(request, post_id):
-    reaction_type = request.POST.get('reaction_type')
-    # post_id = request.POST.get('post_id')
+def reaction_add(request, post_id, reaction_type):
     post = get_post(post_id)
-    reaction = Reactions.objects.create(post=post, user=request.user,
-                                        reaction_type=reaction_type)
-    reaction.save()
+    if Reactions.objects.filter(post=post, user=request.user).exists():
+        existing_reaction = Reactions.objects.get(post=post, user=request.user)
+        existing_reaction.reaction_type = reaction_type
+        existing_reaction.save()
+    else:
+        reaction = Reactions.objects.create(post=post, user=request.user,
+                                            reaction=reaction_type)
+        reaction.save()
+
     return HttpResponseRedirect(
         reverse('post_detail', kwargs={'post_id': post_id}))
 

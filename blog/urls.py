@@ -22,7 +22,7 @@ urlpatterns = [
     path('edit_post/<int:post_id>/', edit_post, name='edit_post'),
     path('comments/delete/<int:comment_id>', remove_comment, name='delete_comment'),
     path('edit_comment/<int:comment_id>/', edit_comment, name='edit_comment'),
-    path('reaction/add/<int:post_id>/', reaction_add, name='add_reaction'),
+    path('reaction/add/<int:post_id>/<reaction_type>', reaction_add, name='add_reaction'),
 ]
 
 

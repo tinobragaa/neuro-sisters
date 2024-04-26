@@ -71,6 +71,8 @@
 
                 Reactions: {{ post.reactions_set.all.count }}
                 Comments: {{ post.comment_set.all.count }}
+                <a href="{% url 'add_reaction' post_id=post.id reaction_type="LIKE" %}">like</a> 
+                
 
             </div>
         </div>
