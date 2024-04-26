@@ -2,30 +2,20 @@
 {% block extra_title %}| Post{% endblock %}
 
 {% block body %}
-{{ post.title }}
+    {{ post.title }}
     <p>post detail</p>
     {{ post.content | safe }}
     {% if post.author == user or user.is_staff %}
         <a href="{% url 'edit_post' post.id %}">Edit Post</a>
     {% endif %}
     
-    <div class="reactions-container">
-        <ul>
-            {% for reaction in reactions| groupby(attribute="name") %}
-            	<li>{{ reaction }}</li>
-            {% endfor %}
-            
-            
-        </ul>
-    
-    </div>
 
     <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
-        {% csrf_token %}        
+        {% csrf_token %}
         {{ comment_form }}
         <button type="submit">Submit</button>
     </form>
-    
+
     <p>Comments</p>
     <ul>
         {% for comment in comments %}
