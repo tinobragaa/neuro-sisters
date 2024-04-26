@@ -222,6 +222,9 @@ def edit_comment(request, comment_id):
 
 def reaction_add(request, post_id, reaction_type):
     post = get_post(post_id)
+    if not request.user.is_authenticated:
+        messages.warning(request,'You are not logged in to add reactions.!')
+        return HttpResponseRedirect(reverse('blog_home'))
     if Reactions.objects.filter(post=post, user=request.user).exists():
         existing_reaction = Reactions.objects.get(post=post, user=request.user)
         existing_reaction.reaction_type = reaction_type
