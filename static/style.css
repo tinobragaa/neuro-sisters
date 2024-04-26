@@ -548,7 +548,10 @@ main {
         margin: 10px auto;
         background-color: #d2e7d6;;
 }
-
+.add-post {
+    display: block;
+    margin: 0 auto;
+}
 .post h3 i {
     font-size: 80%;
     padding: 5px;
