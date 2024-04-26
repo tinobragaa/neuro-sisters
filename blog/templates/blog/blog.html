@@ -2,36 +2,14 @@
 {% block extra_title %}| Blog{% endblock %}
 
 {% block body %}
-    <main>
-        <div class="row">
-            {% for category in categories %}
-                <div class="col">
-                    {{ category }}
-                </div>
-            {% endfor %}
-
-
+<main>
+    <div class="categories-list">
+    {% for category in categories %}
+    	<div class="category">
+            {{ category }}
         </div>
-
-        <div class="categories-list">
-            <div class="category">
-                <p>Finances and employment</p>
-            </div>
-            <div class="category">
-                <p>Family dynamics</p>
-            </div>
-            <div class="category">
-                <p>Diagnosis in adulthood</p>
-            </div>
-            <div class="category">
-                <p>Emotional Impact</p>
-            </div>
-            <div class="category">
-                <p>Social Stigma</p>
-            </div>
-            <div class="category">
-                <p>Other</p>
-            </div>
+    {% endfor %}
+    </div>
 
         </div>
         <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
@@ -60,7 +38,7 @@
                     <h3>{{ post.title }}</h3>
                     <textarea>{{ post.content | safe | escape }}</textarea>
                     <div class="reactions-comments">
-                       
+
 
                     </div>
                         <div class="reactions">
@@ -83,13 +61,13 @@
                             {{ post.reactions_set.all.count }}
                         </div>
                         <div class="comments">
-                            <a href="{% url 'post_detail' post.id %}"><i class="fa-regular fa-comment"></i> 
+                            <a href="{% url 'post_detail' post.id %}"><i class="fa-regular fa-comment"></i>
                             {{ post.comment_set.all.count }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-      
+
 
         {% empty %}
             <p>No posts yet.</p>
