@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['neuro-sisters-37c8c20181fb.herokuapp.com',
                  '127.0.0.1',
                  '0.0.0.0', 'localhost', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/', 'https://8000-tinobragaa-hackathontea-nw5xxu9paq6.ws-eu110.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://neuro-sisters-37c8c20181fb.herokuapp.com/']
 
 # Application definition
 
@@ -52,10 +52,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'home',
     'blog',
     'user_profile'
-
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_settings.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {

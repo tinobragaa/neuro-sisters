@@ -4,26 +4,24 @@
 {% block body %}
 
 {% load allauth i18n %}
-{% block head_title %}
-    {% trans "Sign Out" %}
-{% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-        {% slot body %}
-            {% csrf_token %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" %}
-                {% trans 'Sign Out' %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-{% endblock content %}
-
+<div class="container">
+    <div class="row h-100">
+      <div class="col col-lg-6 col-md-8 col-sm-12 mx-auto text-center p-3 pb-5">
+        <div class="card border-0">
+          <img src="/static/img/favicon/favicon.png" class="mini-logo" alt="NeuroSisters login page image">
+          <div class="card-body">
+            <h1 class="card-title logo-font text-yellow">{% trans "Time to log out?" %}</h1>
+            <h5 class="card-text">{% trans 'No problem, see you soon!' %}</h5>
+            <form class="text-center" method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="btn btn-outline-danger" type="submit">{% trans 'Sign Out' %}</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock body %}

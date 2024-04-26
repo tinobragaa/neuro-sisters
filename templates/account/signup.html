@@ -1,42 +1,37 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block extra_title %}| Sign Up{% endblock %}
 
 {% block body %}
 
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    <p>{% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}</p>
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
-{% endblock content %}
+<div class="container">
+  <div class="row h-100">
+    <div class="col col-lg-6 col-md-8 col-sm-12 m-auto p-3 pb-5">
+      <div class="card border-0">
+        <img src="/static/img/favicon/favicon.png" class="mini-logo" alt="NeuroSisters login page image">
+        <div class="card-body">
+          <h1 class="card-title logo-font text-center">Sign Up</h1>
+          <h5 class="card-text text-center">Already have an account? Then please
+            <a class="text-teal" href="{{ login_url }}">sign in</a>.
+          </h5>
+          <div class="col-lg-10 p-2 m-auto">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {{ form|crispy }}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <div class="text-center">
+                <button class="btn btn-outline-success" type="submit">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
 {% endblock body %}
