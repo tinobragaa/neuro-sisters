@@ -3,16 +3,10 @@
 ## Code Institute April 2024 Hackathon
 ![readme_image](https://github.com/tinobragaa/neuro-sisters/assets/20447596/aebadcd4-14da-4fcb-96c8-2c7f6c339306)
 
-
 ## Live Site
 
 This project was created by **HerHealth Hacktivists** and is deployed and can be accessed at [neuro-sisters](https://neuro-sisters-37c8c20181fb.herokuapp.com/).
 
-## Github Repository
-
-[neuro-sisters github repository](https://github.com/tinobragaa/neuro-sisters)
-
-***
 ## Contents
 - [Purpose](#purpose)
 - [Objective](#objective)
