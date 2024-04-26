@@ -2,15 +2,17 @@
 {% block extra_title %}| Post{% endblock %}
 
 {% block body %}
+
     <div class="post_detail">
         <h1>{{ post.title }}</h1>
         <p>{{ post.content | safe }}</p>
     {% if post.author == user or user.is_staff %}
         <a href="{% url 'edit_post' post.id %}" class="btn btn-dark" id="edit">Edit Post</a>
     {% endif %}
+    
 
     <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
-        {% csrf_token %}        
+        {% csrf_token %}
         {{ comment_form }}
         <button type="submit" class="btn btn-dark" id="submit">Submit</button>
     </form>

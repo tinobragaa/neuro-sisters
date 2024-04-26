@@ -585,23 +585,19 @@ ul {
     padding: 10px;
 }
 
-.reactions p {
-    padding: 5px
-}
-
-.reactions-comments {
+.reactions {
     display: flex;
     justify-content: flex-end;
-}
-
-.reactions, .comments {
-    display: flex;
     align-items: center;
 }
 
-.reactions p, .comments p {
+.reactions i {
     padding: 5px;
-    margin-left: 5px;
+    font-size: 1.8em;
+}
+
+.reactions-container {
+    margin: 0 30px;
 }
 
 .small-number {
@@ -635,4 +631,17 @@ ul {
 .support-text {
     font-size: 2rem;
     margin-top: 40px;
+}
+
+/* About */
+.about-info {
+    padding: 25px;
+    margin: 30px auto;
+    border: 2px solid #536d7a;
+    border-radius: 10px;
+    background-color: #cdd8e6;
+}
+
+#about-green {
+    background-color: #d2e7d6;
 }

@@ -84,10 +84,13 @@ def post_detail_view(request, post_id):
     """
     post = get_post(post_id)
     comments = Comment.objects.filter(post_id=post.id)
+    reactions = Reactions.objects.filter(post_id=post.id)
     context = {
         'post': post,
         'comments': comments,
-        'comment_form': CommentForm()
+        'comment_form': CommentForm(),
+        'reactions': reactions,
+
     }
 
     return render(request, 'blog/post_detail.html', context)
