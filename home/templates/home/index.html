@@ -9,7 +9,13 @@
         <img src="{% static 'img/mother-and-son.png' %}" alt="Photo of mother and son">
     </div>
     <div id="welcome">
-        <h2>We are Neuro Sisters, mothers of neurodivergent adult children, here to support each other and share our journey</h2>
+        <div>
+          <h2><strong>NEUROSISTERS</strong></h2>
+          <hr class="mb-4 mt-0">
+        </div>
+        <p class="text-uppercase">Mothers of neurodivergents individuals</p>
+        <p class="mb-4 text-uppercase">here to support each other</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-hero btn-lg text-uppercase py-3">Join Our Circle</a>
     </div>
 </section>
 <section id="intro-message">
@@ -54,31 +60,32 @@
         <p class="sr-only">Woman's face</p>
       </div>
       <q>Being a single mom with a neurodivergent adult child can be incredibly isolating. This group of amazing women provided me with a sense of belonging, guidance, and encouragement. From navigating the job market to dealing with social challenges, I never felt alone. It's more than a support group; it's a lifeline.</q>
-      <p>Kathy</p>
+      <p><strong>Kathy</strong></p>
     </div>
     <div>
       <div id="image-two" class="quotes-images">
         <p class="sr-only">Woman's face</p>
       </div>
       <q>When my son was diagnosed with Asperger's as an adult, I felt lost. But through the support network for women with neurodivergent adult children, I found a community that truly understands. The advice, encouragement, and compassion I received made all the difference. It's not just about the support; it's about finding family in the journey.</q>
-      <p>Yasmin</p>
+      <p><strong>Yasmin</strong></p>
     </div>
     <div>
       <div id="image-three" class="quotes-images">
         <p class="sr-only">Woman's face</p>
       </div>
       <q>The transition to adulthood for my neurodivergent son was filled with anxiety and uncertainty. The women in this support network became my source of strength. They helped me find resources, share stories, and laugh through the tears. I wouldn't be where I am without their support.</q>
-      <p>Sam</p>
+      <p><strong>Sam</strong></p>
     </div>
     <div>
       <div id="image-four" class="quotes-images">
         <p class="sr-only">Woman's face</p>
       </div>
       <q>My daughter was diagnosed with ADHD in her late teens, and I had no idea how to help her transition into adulthood. The women in this group offered me guidance, empathy, and a safe space to share my fears and triumphs. Their support gave me the confidence to be the best advocate for my child.</q>
-      <p>Barbara</p>
+      <p><strong>Barbara</strong></p>
     </div>
   </div>
 </section>
+<p class="text-uppercase text-center support-text">Supporting Mothers, Nurturing Futures</p>
 </main>
     
 {% endblock %}
