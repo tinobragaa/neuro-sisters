@@ -36,7 +36,7 @@
 
                     </h3>
                     <h3>{{ post.title }}</h3>
-                    <textarea>{{ post.content | safe | escape }}</textarea>
+                    <textarea>{{ post.content | safe }}</textarea>
                     <div class="reactions-comments">
 
 
@@ -87,12 +87,13 @@
                 $(this).find('.reactions-choices').addClass('hidden');
             }
 
-            $('.reactions-container').on('click', showReactionChoices);
-            $('.reactions-choices').on('click', hideReactionChoices);
+            $('.reactions-container').on('mouseover', showReactionChoices);
 
 
+             $('*').click(function() {
+                    $('.reactions-choices').addClass('hidden');
+              });
         })
-
 
     </script>
 {% endblock %}
