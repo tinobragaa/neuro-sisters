@@ -2,34 +2,36 @@
 {% block extra_title %}| Post{% endblock %}
 
 {% block body %}
-{{ post.title }}
-    <p>post detail</p>
-    {{ post.content | safe }}
+    <div class="post_detail">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content | safe }}</p>
     {% if post.author == user or user.is_staff %}
-        <a href="{% url 'edit_post' post.id %}">Edit Post</a>
+        <a href="{% url 'edit_post' post.id %}" class="btn btn-dark" id="edit">Edit Post</a>
     {% endif %}
 
     <form action="{% url 'submit_comment' post_id=post.id %}" method="post">
         {% csrf_token %}        
         {{ comment_form }}
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-dark" id="submit">Submit</button>
     </form>
     
-    <p>Comments</p>
+    <h3 class="post_comments">Comments</h3>
     <ul>
         {% for comment in comments %}
             <li>
-                Author: {{ comment.author }}, <br>
-                {{ comment.content | safe }} <br>
-                Created on: {{ comment.created_at }}
+                <p class="author">Author: {{ comment.author }}</p>
+                <p>{{ comment.content | safe }}</p>
+                <span>Created on: {{ comment.created_at }}</span>
                 {% if comment.author == user or user.is_staff %}
-                    <a href="{% url 'edit_comment' comment.id %}">Edit</a> |
+                    <a href="{% url 'edit_comment' comment.id %}" class="btn btn-success">Edit</a> |
                 {% endif %}
                 {% if comment.author == user or user.is_staff %}
-                    <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                    <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger">Delete</a>
                 {% endif %}
             </li>
         {% endfor %}
     </ul>
+    </div>
+    
 
 {% endblock %}

@@ -536,9 +536,46 @@ main {
     background-color: #d2e7d6;;
 }
 
+.post_detail {
+        border: 2px solid #536d7a;
+        border-radius: 15px;
+        padding: 30px;
+        width: 70%;
+        margin: 10px auto;
+        background-color: #d2e7d6;;
+}
+
 .post h3 i {
     font-size: 80%;
     padding: 5px;
+}
+
+.post_detail h1 {
+    padding: 20px;
+}
+
+.post_detail p {
+    padding: 5px;
+}
+
+.post_comments {
+    padding: 5px;
+}
+
+.author {
+    font-size: 1.2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#edit {
+    margin-bottom: 10px;
+}
+
+#submit {
+    margin: 10px;
 }
 
 .post textarea {
