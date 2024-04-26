@@ -9,6 +9,7 @@ from blog.views import (blog_home,
                         edit_comment,
                         edit_post,
                         add_post,
+                        reaction_add,
                         custom_404,
                         custom_500,
                         custom_403)
@@ -21,6 +22,7 @@ urlpatterns = [
     path('edit_post/<int:post_id>/', edit_post, name='edit_post'),
     path('comments/delete/<int:comment_id>', remove_comment, name='delete_comment'),
     path('edit_comment/<int:comment_id>/', edit_comment, name='edit_comment'),
+    path('reaction/add/<int:post_id>/', reaction_add, name='add_reaction'),
 ]
 
 
