@@ -479,17 +479,22 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+
 }
 
 .category {
     border: 1px solid #536d7a;
     height: 80px;
-    max-width: 300px;
-    min-width: 100px;
+    width: 200px;
     margin: 5px 20px;
     padding: 10px;
     flex-basis: auto;
     flex-grow: 1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .post {
