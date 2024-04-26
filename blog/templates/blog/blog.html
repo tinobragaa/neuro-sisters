@@ -2,39 +2,61 @@
 {% block extra_title %}| Blog{% endblock %}
 
 {% block body %}
-    <main>
-        <div class="row">
-            {% for category in categories %}
-                <div class="col">
-                    {{ category }}
-                </div>
-            {% endfor %}
-
-
+<main>
+    <div class="row">
+    {% for category in categories %}
+    	<div class="col">
+            {{ category }}
+        </div>
+    {% endfor %}
+    
+        
+    </div>
+    
+    <div class="categories-list">
+        <div class="category">
+            <p>Finances and employment</p>
+        </div>
+        <div class="category">
+            <p>Family dynamics</p>
+        </div>
+        <div class="category">
+            <p>Diagnosis in adulthood</p>
+        </div>
+        <div class="category">
+            <p>Emotional Impact</p>
+        </div>
+        <div class="category">
+            <p>Social Stigma</p>
+        </div>
+        <div class="category">
+            <p>Other</p>
         </div>
 
-        {% if user.is_authenticated %}
-            <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
-        {% endif %}
-
-        <div class="post">
-            <div>
-                <h3>author</h3>
-                <h3>title</h3>
-                <textarea>text</textarea>
-                <div class="reactions-comments">
-                    <div class="reactions">
-                        <p>reactions</p>
-                        <p class="small-number">5</p>
-                    </div>
-                    <div class="comments">
-                        <p>comments</p>
-                        <p class="small-number">5</p>
-                    </div>
+    </div>
+       <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
+    <div id="caterogies">
+        <div>
+            <p></p>
+        </div>
+    </div>
+    <div class="post">
+        <div>
+            <h3>author <i class="fa-solid fa-user-plus"></i></h3>
+            <h3>title</h3>
+            <textarea>text</textarea>
+            <div class="reactions-comments">
+                <div class="reactions">
+                    <p><i class="fa-regular fa-thumbs-up"></i> Like</p>
+                    <p class="small-number">12</p>
                 </div>
-
+                <div class="comments">
+                    <p><i class="fa-regular fa-comment"></i> Comment</p>
+                    <p class="small-number">5</p>
+                </div>
             </div>
         </div>
+    </div>
 
 
         {% for post in posts %}
@@ -119,13 +141,13 @@
 
             $('.reactions-container').on('click', showReactionChoices);
             $('.reactions-choices').on('click', hideReactionChoices);
-            
-            
+
+
         })
-        
-        
-        
-        
-        
+
+
+
+
+
     </script>
 {% endblock %}
