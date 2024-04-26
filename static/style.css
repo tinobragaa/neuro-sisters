@@ -487,7 +487,8 @@ main {
     border-radius: 10px;
     padding: 5px;
 }
-.reactions-comments, .reactions, .comments {
+
+.reactions, .comments {
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -499,9 +500,22 @@ main {
     padding: 5px
 }
 
-.comments p {
-    padding: 5px
+.reactions-comments {
+    display: flex;
+    justify-content: flex-end; /* Aligns both reactions and comments to the end */
+    margin: 0 10px;
 }
+
+.reactions, .comments {
+    display: flex;
+    align-items: center; 
+}
+
+.reactions p, .comments p {
+    padding: 5px;
+    margin-left: 5px; 
+}
+
 
 .small-number {
     border: 1px solid #343a40;
