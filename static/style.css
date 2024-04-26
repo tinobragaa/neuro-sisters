@@ -5,6 +5,10 @@
     color: black;
 }
 
+body {
+    font-family: 'Belleza', sans-serif;
+}
+
 .custom-navbar {
     width: 71%;
     border-radius: 20px;
@@ -552,6 +556,7 @@ main {
 
 .post_detail h1 {
     padding: 20px;
+    text-align: center;
 }
 
 .post_detail p {
