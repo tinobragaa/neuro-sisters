@@ -2,88 +2,130 @@
 {% block extra_title %}| Blog{% endblock %}
 
 {% block body %}
-<main>
-    <div class="row">
-    {% for category in categories %}
-    	<div class="col">
-            {{ category }}
-        </div>
-    {% endfor %}
-    
-        
-    </div>
-    
-    
-       <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
-    
-    <div class="post">
-        <div>
-            <h3>author</h3>
-            <h3>title</h3>
-            <textarea>text</textarea>
-            <div class="reactions-comments">
-                <div class="reactions">
-                    <p>reactions</p>
-                    <p class="small-number">5</p>
+    <main>
+        <div class="row">
+            {% for category in categories %}
+                <div class="col">
+                    {{ category }}
                 </div>
-                <div class="comments">
-                    <p>comments</p>
-                    <p class="small-number">5</p>
-                </div>
-            </div>
+            {% endfor %}
+
 
         </div>
-    </div>
 
+        {% if user.is_authenticated %}
+            <a class="btn btn-success" href="{% url 'add_post' %}">Add new post</a>
+        {% endif %}
 
-    {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        <p>Author: {{ post.author.username }}
-            {% if user.is_authenticated %}
-                {% if not post.author.username == user.username %}
-                    {% if post.author.id in friends_list %}
-{#                        can put unfollow link here if needed    #}
-                    {% else %}
-                        <a href="{% url 'add_friend' post.author.id %}">Follow user</a>
-                    {% endif %}
-                {% endif %}  </p>
-            {% endif %}
-        <div>
-            <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
-
-            <div class="post_container">
-                <p>{{ post.content | safe | escape }}</p>
+        <div class="post">
+            <div>
+                <h3>author</h3>
+                <h3>title</h3>
+                <textarea>text</textarea>
+                <div class="reactions-comments">
+                    <div class="reactions">
+                        <p>reactions</p>
+                        <p class="small-number">5</p>
+                    </div>
+                    <div class="comments">
+                        <p>comments</p>
+                        <p class="small-number">5</p>
+                    </div>
+                </div>
 
             </div>
+        </div>
 
-            <p>Categories: {% for cat in post.category.all %}
-                {{ cat.name }}
-                {% if not forloop.last %}
-                    ,
+
+        {% for post in posts %}
+            <h2>{{ post.title }}</h2>
+            <p>Author: {{ post.author.username }}
+                {% if user.is_authenticated %}
+                    {% if not post.author.username == user.username %}
+                        {% if post.author.id in friends_list %}
+                            {#                        can put unfollow link here if needed    #}
+                        {% else %}
+                            <a href="{% url 'add_friend' post.author.id %}">Follow user</a>
+                        {% endif %}
+                    {% endif %}  </p>
                 {% endif %}
-            {% endfor %}</p>
+            <div>
+                <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+
+                <div class="post_container">
+                    <p>{{ post.content | safe | escape }}</p>
+
+                </div>
+
+                <p>Categories: {% for cat in post.category.all %}
+                    {{ cat.name }}
+                    {% if not forloop.last %}
+                        ,
+                    {% endif %}
+                {% endfor %}</p>
 
 
-            <div class="reactions_container">
-                {#          TODO: create JS reactions representation.#}
-                {#          Split them into groups and show icons with the count instead of just a numbers #}
-                {#          create animation of reactions icon floating up when clicked #}
+                <div class="reactions_container">
+                    {#          TODO: create JS reactions representation.#}
+                    {#          Split them into groups and show icons with the count instead of just a numbers #}
+                    {#          create animation of reactions icon floating up when clicked #}
 
-                Reactions: {{ post.reactions_set.all.count }}
-                Comments: {{ post.comment_set.all.count }}
-                <a href="{% url 'add_reaction' post_id=post.id reaction_type="LIKE" %}">like</a> 
-                
+                    Reactions: {{ post.reactions_set.all.count }}
+                    Comments: {{ post.comment_set.all.count }}
 
+                    <div class="reactions-container">
+                        <i class="fa-regular fa-heart"></i>
+                        <div class="reactions-choices hidden ">
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="LIKE" %}"><i
+                                    class="fa-regular fa-thumbs-up"></i></a>
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="LOVE" %}"><i
+                                    class="fa-regular fa-heart"></i></a>
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="HAHA" %}"><i
+                                    class="fa-regular fa-face-laugh-beam"></i></a>
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="WOW" %}"><i
+                                    class="fa-regular fa-face-meh-blank"></i></a>
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="SAD" %}"><i
+                                    class="fa-regular fa-face-frown"></i></a>
+                            <a href="{% url 'add_reaction' post_id=post.id reaction_type="ANGRY" %}"><i
+                                    class="fa-regular fa-face-angry"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-        </div>
 
-    </main>
-
+            </main>
 
 
-    {% empty %}
-        <p>No posts yet.</p>
-    {% endfor %}
-    
- 
+
+        {% empty %}
+            <p>No posts yet.</p>
+        {% endfor %}
+
+
+
+
+    {##}
+    <script>
+        $(document).ready(function () {
+            function showReactionChoices() {
+                $(this).find('.reactions-choices').removeClass('hidden');
+            }
+
+            function hideReactionChoices() {
+                $(this).find('.reactions-choices').addClass('hidden');
+            }
+
+            $('.reactions-container').on('click', showReactionChoices);
+            $('.reactions-choices').on('click', hideReactionChoices);
+            
+            
+        })
+        
+        
+        
+        
+        
+    </script>
 {% endblock %}

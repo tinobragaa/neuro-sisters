@@ -144,7 +144,6 @@ def remove_post(request, post_id):
 
 
 @login_required
-@staff_member_required
 def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -230,7 +229,7 @@ def reaction_add(request, post_id, reaction_type):
         reaction.save()
 
     return HttpResponseRedirect(
-        reverse('post_detail', kwargs={'post_id': post_id}))
+        reverse('blog_home'))
 
 
 
