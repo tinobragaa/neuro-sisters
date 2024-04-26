@@ -14,6 +14,7 @@
     left: 50%;
     transform: translateX(-50%);
     margin-top: 10px;
+    z-index: 3;
 }
 
 .navbar-brand img {
@@ -470,7 +471,6 @@ main {
     margin: 0 auto;
 }
 
-
 /* Blog */
 .post {
     border: 2px solid #536d7a;
@@ -493,27 +493,13 @@ main {
     padding: 10px;
 }
 
-.reactions, .comments {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    width: 100%;
-    margin: 0 10px;
-}
-
-.reactions, .comments {
-    display: flex;
-    flex-direction: row;
-}
-
 .reactions p {
     padding: 5px
 }
 
 .reactions-comments {
     display: flex;
-    justify-content: flex-end; /* Aligns both reactions and comments to the end */
-    margin: 0 10px;
+    justify-content: flex-end;
 }
 
 .reactions, .comments {
@@ -526,10 +512,10 @@ main {
     margin-left: 5px; 
 }
 
-
 .small-number {
     border: 1px solid #343a40;
     width: 35px;
     text-align: center;
     background-color: #ffffff;
 }
+ 
