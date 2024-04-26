@@ -79,7 +79,8 @@ The database for the blogs was created in [Oracle](https://www.pro-dba.com/oracl
 
 The database schema is below.
 
-![image](https://github.com/tinobragaa/neuro-sisters/assets/20447596/78bbd248-06f5-4d12-b122-955e19cfbe1f)
+![image](https://github.com/tinobragaa/neuro-sisters/assets/20447596/273f41b1-f7e9-48a3-b3b2-3d5578f28e37)
+
 
 ## Testing
 
