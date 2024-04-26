@@ -21,7 +21,7 @@
         {% for post in posts %}
             <div class="post">
                 <div>
-                    <h3>author {{ post.author.username }}
+                    <h3>By {{ post.author.username }}
 
                         {% if user.is_authenticated %}
                             {% if not post.author.username == user.username %}
@@ -35,7 +35,7 @@
                         {% endif %}
 
                     </h3>
-                    <h3>{{ post.title }}</h3>
+                    <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
                     <textarea>{{ post.content | safe }}</textarea>
                     <div class="reactions-comments">
 
