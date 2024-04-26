@@ -71,7 +71,6 @@
     background-color: #f0f0f0;
 }
 
-
 /* Footer */
 
 body {
@@ -79,25 +78,25 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-  
-  .content {
+}
+
+.content {
     flex: 1;
-  }
-  
-  .footer {
+}
+
+.footer {
     width: 100%;
     background-color: #f8f9fa;
-    bottom: 0;
-    border-top: 1px solid #ccc; 
+    border-top: 1px solid #ccc;
     padding-top: 20px;
     padding-bottom: 20px;
-  }
+    margin-top: auto;
+}
 
-  .footer .logo-font {
-    text-decoration: none; 
-    color: black; 
-  }
+.footer .logo-font {
+    text-decoration: none;
+    color: black;
+}
 
 /* Home page */
 main {
